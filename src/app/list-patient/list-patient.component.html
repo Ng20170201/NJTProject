@@ -1,0 +1,17 @@
+<table border="1">
+    <caption>List patients</caption>
+    <thead>
+        <tr>
+         
+            <th>first name</th>
+            <th>last name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let patient of patients">
+          
+            <td>{{patient.firstname }}</td>
+            <td>{{patient.lastname}}</td>
+        </tr>
+    </tbody>
+    </table>
