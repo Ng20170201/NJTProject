@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { ListPatientComponent } from './list-patient/list-patient.component';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ListPatientComponent } from './list-patient/list-patient.component';
     WelcomeComponent,
     LoginComponent,
     ErrorComponent,
-    ListPatientComponent
+    ListPatientComponent,
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
