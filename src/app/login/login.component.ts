@@ -38,5 +38,12 @@ export class LoginComponent implements OnInit {
            else {
          this.invalidLogin=true
       }
+      if(this.hardcodedAuthenticationService.authenticateDoctor(this.username,this.password)){
+        this.router.navigate(['welcome-doctor', this.username])
+        this.invalidLogin=false
+      }
+           else {
+         this.invalidLogin=true
+      }
     }
 }

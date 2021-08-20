@@ -11,6 +11,11 @@ import { ListPatientComponent } from './list-patient/list-patient.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ReviewComponent } from './review/review.component';
+import { ReportComponent } from './report/report.component';
+import { PatientReportsComponent } from './patient-reports/patient-reports.component';
+import { PatinetReviewsComponent } from './patinet-reviews/patinet-reviews.component';
+import { WelcomeDoctorComponent } from './welcome-doctor/welcome-doctor.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { LogoutComponent } from './logout/logout.component';
     ListPatientComponent,
     MenuComponent,
     FooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    ReviewComponent,
+    ReportComponent,
+    PatientReportsComponent,
+    PatinetReviewsComponent,
+    WelcomeDoctorComponent
   ],
   imports: [
     BrowserModule,
