@@ -16,6 +16,7 @@ import { ReportComponent } from './report/report.component';
 import { PatientReportsComponent } from './patient-reports/patient-reports.component';
 import { PatinetReviewsComponent } from './patinet-reviews/patinet-reviews.component';
 import { WelcomeDoctorComponent } from './welcome-doctor/welcome-doctor.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { WelcomeDoctorComponent } from './welcome-doctor/welcome-doctor.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-package com.NJTProject.rest.webservices.restwebservices;
+package com.NJTProject.rest.webservices.restwebservices.helloworld;
 
 public class HelloWorldBean {
 

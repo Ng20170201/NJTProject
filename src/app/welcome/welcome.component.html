@@ -10,3 +10,15 @@ Welcome to awsome app
 <div>
 You can menage your list <a routerLink="/list-patient">here</a>
 </div>
+
+
+<div class="container">
+    Click here to get a customized welcome message
+    <button (click)="getWelcomeMessageWithParametar()" class="btn btn-success">Get welcome message</button>
+</div>
+
+<div class="container" *ngIf="welcomeMessageFromService">
+    <h2>You are customized welcome message</h2>
+    {{welcomeMessageFromService}}
+   
+</div>
