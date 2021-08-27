@@ -17,7 +17,11 @@ import { PatientReportsComponent } from './patient-reports/patient-reports.compo
 import { PatinetReviewsComponent } from './patient-reviews/patinet-reviews.component';
 import { WelcomeDoctorComponent } from './welcome-doctor/welcome-doctor.component';
 import { HttpClientModule } from '@angular/common/http';
+
 import { PatientComponent } from './patient/patient.component';
+
+import { OneReportComponent } from './one-report/one-report.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { PatientComponent } from './patient/patient.component';
     PatientReportsComponent,
     PatinetReviewsComponent,
     WelcomeDoctorComponent,
+
     PatientComponent
+
+    OneReportComponent
+
   ],
   imports: [
     BrowserModule,
