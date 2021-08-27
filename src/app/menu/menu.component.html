@@ -7,7 +7,7 @@
         <ul class="navbar-nav">
             <li><a  *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/welcome/nikola" class="nav-link"> Home </a></li>
             <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/welcome-doctor/nikola" class="nav-link"> Home </a></li>
-            <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/list-patient" class="nav-link"> Patient </a></li>
+            <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/list-patient" class="nav-link"> Patients </a></li>
             <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/review" class="nav-link"> Reviews </a></li>
             <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/report" class="nav-link"> Reports </a></li>
             <li><a  *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/patient-reviews" class="nav-link"> My reviews </a></li>

@@ -1,22 +1,49 @@
-<h1>My patients</h1>
+<h1 class="title">My patients</h1>
+<div style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
+    
+    <div>
+        <button class="btn btn-success" (click)="addPatient()">Add patient</button>
 
+    </div>
+</div>
+
+
+<div class="alert alert-success" *ngIf="message">
+    {{message}}
+</div>
 
 <div class="container">
-<table class="table">
-    <caption>List patients</caption>
-    <thead>
-        <tr>
-         
-            <th>first name</th>
-            <th>last name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let patient of patients">
-          
-            <td>{{patient.firstname }}</td>
-            <td>{{patient.lastname}}</td>
-        </tr>
-    </tbody>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>UCIN</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of patients">
+                <td>{{patient.ucin}}</td>
+                <td>{{patient.name }}</td>
+                <td>{{patient.surname}}</td>
+                <td>{{patient.email}}</td>
+                <td>{{patient.telephone}}</td>
+                <td>
+                    <button (click)="updatePatient(patient.id)" class="btn btn-success">Update</button>
+
+                </td>
+                <td>
+                    <button (click)="deletePatient(patient.id)" class="btn btn-warning">Delete</button>
+
+                </td>
+
+            </tr>
+        </tbody>
     </table>
+
 </div>

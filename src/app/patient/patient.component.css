@@ -1,0 +1,41 @@
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid #003459;
+    border-style: dotted;
+}
+.ng-invalid:not(form){
+    border-left: 5px solid red;
+}
+.btn-success{
+    background-color: rgb(96, 135, 160);
+    border: 1px solid rgb(81, 166, 216);
+    transition-duration: 0.2s;
+    height: 50px;
+    width: 120px;
+
+}
+.btn-success:hover{
+    background-color: rgb(0, 107, 168);
+    border: 1px solid rgb(0, 107, 168);
+    
+}
+tr{
+    display: flex;
+    justify-content:  space-around;
+    margin:10px;
+}
+.title{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+    color:#003459;
+    margin-bottom: 15px;
+
+}
+label{
+    color:#003459;
+    font-size: 20 ;
+    font-weight: bold;
+}

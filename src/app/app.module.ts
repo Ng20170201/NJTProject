@@ -14,10 +14,14 @@ import { LogoutComponent } from './logout/logout.component';
 import { ReviewComponent } from './review/review.component';
 import { ReportComponent } from './report/report.component';
 import { PatientReportsComponent } from './patient-reports/patient-reports.component';
-import { PatinetReviewsComponent } from './patinet-reviews/patinet-reviews.component';
+import { PatinetReviewsComponent } from './patient-reviews/patinet-reviews.component';
 import { WelcomeDoctorComponent } from './welcome-doctor/welcome-doctor.component';
 import { HttpClientModule } from '@angular/common/http';
+
+import { PatientComponent } from './patient/patient.component';
+
 import { OneReportComponent } from './one-report/one-report.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { OneReportComponent } from './one-report/one-report.component';
     PatientReportsComponent,
     PatinetReviewsComponent,
     WelcomeDoctorComponent,
+
+    PatientComponent
+
     OneReportComponent
+
   ],
   imports: [
     BrowserModule,
