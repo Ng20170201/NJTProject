@@ -13,6 +13,7 @@ export class OneReportComponent implements OnInit {
 patientId:number=0
 doctorId:number=0
 office:string=''
+
 report:Report= new Report(0,0,'','',new Date()) 
 
 
