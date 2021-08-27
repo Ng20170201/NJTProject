@@ -14,9 +14,10 @@ import { LogoutComponent } from './logout/logout.component';
 import { ReviewComponent } from './review/review.component';
 import { ReportComponent } from './report/report.component';
 import { PatientReportsComponent } from './patient-reports/patient-reports.component';
-import { PatinetReviewsComponent } from './patinet-reviews/patinet-reviews.component';
+import { PatinetReviewsComponent } from './patient-reviews/patinet-reviews.component';
 import { WelcomeDoctorComponent } from './welcome-doctor/welcome-doctor.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PatientComponent } from './patient/patient.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReportComponent,
     PatientReportsComponent,
     PatinetReviewsComponent,
-    WelcomeDoctorComponent
+    WelcomeDoctorComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,

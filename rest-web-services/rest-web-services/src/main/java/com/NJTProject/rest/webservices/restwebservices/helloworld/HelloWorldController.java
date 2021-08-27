@@ -20,13 +20,12 @@ public class HelloWorldController {
 
 	@GetMapping(path="/hello-world-bean")
 	public HelloWorldBean helloWorldBean() {
-		//throw new RuntimeException("Some error w ");
- 	return new HelloWorldBean("Hello World chenged");
+ 	return new HelloWorldBean("Hello World changed");
 	}
 	
 	
 	@GetMapping(path="/hello-world/path-veriable/{name}")
 	public HelloWorldBean helloWorldBeanPathVariable(@PathVariable String name) {
-		return new HelloWorldBean(String.format("Hello World, %s", name));
+		return new HelloWorldBean(String.format("Hello %s", name));
 	}
 }

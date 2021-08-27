@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PatientDataService } from '../service/data/patient-data.service';
 
-export class Patient{
+export class Patient {
   constructor(
-    public id:number,
-    public firstname:string,
-    public lastname:string
-  ){
+    public id: string,
+    public ucin: number|null,
+    public name: string,
+    public surname: string,
+    public birthDate: Date,
+    public email: string,
+    public telephone: string,
+    public password: string
+
+  ) {
 
   }
 }
+
 
 @Component({
   selector: 'app-list-patient',
@@ -16,23 +25,46 @@ export class Patient{
   styleUrls: ['./list-patient.component.css']
 })
 export class ListPatientComponent implements OnInit {
+  patients: Patient[] = [];
+  message!: string;
 
-  // patient ={
-  //   id:1,
-  //   firstname:'Nikola',
-  //   lastname:'Golubovic'
-  // }
-  patients=[
-    new Patient(1,'Nikola','Golubovic'),
-    new Patient(2,'Milica','Cakerevic'),
-    new Patient(3,'Andjela','Filipovic')
 
-  ]
-
-  
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private patientService: PatientDataService,
+    private router:Router
+  ) {
   }
 
+  ngOnInit(): void {
+    this.refreshPatients();
+  }
+  refreshPatients() {
+    this.patientService.retrieveAllPatients('admin').subscribe(
+      response => {
+        console.log(response);
+        this.patients = response;
+      }
+    )
+  }
+
+  deletePatient(id: string) {
+    this.patientService.deletePatient('admin', id).subscribe(
+      response => {
+        console.log("Successful deleting: " + response);
+        this.message = "Successful deleting";
+      },
+      error => {
+        console.log("Error while deleting")
+        this.message = "Error while deleting";
+      }
+    )
+    this.refreshPatients();
+  }
+  updatePatient(id:string){
+    console.log(`update ${id}`)
+    this.router.navigateByUrl(`patients/${id}`);
+  }
+  addPatient(){
+    this.router.navigate(['patients',"-1"]);
+  }
 }

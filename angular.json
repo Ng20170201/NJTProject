@@ -144,6 +144,7 @@
   },
   "defaultProject": "Projekat1",
   "cli": {
+    "analytics": "03dc94c8-dca5-46b3-9843-5af57fe93c79",
     "defaultCollection": "@angular-eslint/schematics"
   }
 }

@@ -1,0 +1,80 @@
+<body>
+    <div class="container">
+        <h1 class="title">New patient info</h1>
+        <div class="alert alert-warning" *ngIf="patientForm.dirty && patientForm.invalid">Please fill in required form
+            fields</div>
+        <form class="form-group" (ngSubmit)="!patientForm.invalid && savePatient()" #patientForm="ngForm">
+            <tr style="display: flex; justify-content: flex-start; margin-left: 100px;">
+
+                <td>
+                    <label>Date of birth</label>
+                    <input [ngModel]="patient.birthDate | date:'yyyy-MM-dd'" (ngModel)="patient.birthDate"
+                        class="form-control" type="date" id="birthday" name="password" size="40" name="birthday"
+                        required="required">
+                </td>
+                <td></td>
+               
+            </tr>
+            <tr>
+                <td>
+                    <label>Name</label>
+                    <input [(ngModel)]="patient.name" class="form-control" size="40" type="text" id="name" name="name"
+                        required="required">
+                </td>
+                <td>
+                    <label>Surname</label>
+                    <input [(ngModel)]="patient.surname" class="form-control" size="40" type="text" id="surname"
+                        name="surname" required="required">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>UCIN</label>
+                    <input [(ngModel)]="patient.ucin" class="form-control" size="40" type="text" id="ucin" name="ucin"
+                        required="required" >
+                </td>
+
+                <td>
+                    <label>Email</label>
+                    <input [(ngModel)]="patient.email" class="form-control" size="40" type="text" id="email"
+                        name="email" required="required">
+                </td>
+              
+
+
+
+            </tr>
+
+            <tr class="password">
+                <td>
+                    <label>Password</label>
+                    <input [(ngModel)]="patient.password" class="form-control" type="password" id="password"
+                        name="password" size="40" required="required">
+                </td>
+
+                <td>
+                    <label>Telephone</label>
+                    <input [(ngModel)]="patient.telephone" class="form-control" type="text" id="telephone"
+                        name="telephone" size="40" required="required">
+                </td>
+            </tr>
+
+            <tr style="display: flex; justify-content: flex-end;">
+
+                <td>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </td>
+            </tr>
+
+        </form>
+
+
+
+    </div>
+
+
+
+
+
+</body>

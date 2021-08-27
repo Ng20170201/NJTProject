@@ -11,7 +11,7 @@ import { WeelcomeDataService } from '../service/data/weelcome-data.service';
 export class WelcomeComponent implements OnInit {
   message="cao druze"
   welcomeMessageFromService='';
-  name=''
+  name='';
 
   constructor(private route:ActivatedRoute,
     private service:WeelcomeDataService) { }
@@ -22,24 +22,19 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage(){
-    //console.log(this.service.executeHelloWorldBeanSevice());
 
     this.service.executeHelloWorldBeanSevice().subscribe(
-      response=>this.hadleSuccessfulResponse(response),
-      error=>this.hadleSuccessfulResponse(error)
+      response=>this.handleSuccessfulResponse(response),
+      error=>this.handleErrorResponse(error)
       
 
     
     );
-   // console.log('last line of getWwlcomeMessage');
-//console.log('get welcome message');
 
   }
 
-  hadleSuccessfulResponse(response:any){
+  handleSuccessfulResponse(response:any){
     this.welcomeMessageFromService=response.message;
-    // console.log(response);
-    // console.log(response.message);
   }
 
   handleErrorResponse(error :any){
@@ -49,17 +44,14 @@ export class WelcomeComponent implements OnInit {
     
   }
   getWelcomeMessageWithParametar(){
-    //console.log(this.service.executeHelloWorldBeanSevice());
 
     this.service.executeHalloWorldServiceWithPathVariable(this.name).subscribe(
-      response=>this.hadleSuccessfulResponse(response),
-      error=>this.hadleSuccessfulResponse(error)
+      response=>this.handleSuccessfulResponse(response),
+      error=>this.handleErrorResponse(error)
       
 
     
     );
-   // console.log('last line of getWwlcomeMessage');
-//console.log('get welcome message');
 
   }
 }
