@@ -4,6 +4,7 @@ import { ErrorComponent } from './error/error.component';
 import { ListPatientComponent } from './list-patient/list-patient.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { OneReportComponent } from './one-report/one-report.component';
 import { PatientReportsComponent } from './patient-reports/patient-reports.component';
 import { PatinetReviewsComponent } from './patinet-reviews/patinet-reviews.component';
 import { ReportComponent } from './report/report.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'report',component:ReportComponent,canActivate:[RouteGuardDoctorService]},
   {path:'patient-reviews',component:PatinetReviewsComponent,canActivate:[RouteGuardService]},
   {path:'patient-reports',component:PatientReportsComponent,canActivate:[RouteGuardService]},
+  {path:'reports/:doctorId/:patientId',component:OneReportComponent,canActivate:[RouteGuardDoctorService]},
   
   {path:'**',component:ErrorComponent}
 ];
