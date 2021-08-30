@@ -1,61 +1,55 @@
 package com.NJTProject.rest.webservices.restwebservices.Report;
-import java.util.Date;
-import java.util.Objects; 
 
 
 
 public class Report {
-	 private long PatientID;
-	 private long DoctorID;
-	 private String Description;
-	 private String Office;
-	 private Date Date;
-	 
-	 protected Report() {
-			
-	 } 
-	 
-	public Report(long patientID, long doctorID, String description, String office, java.util.Date date) {
+	
+	private long id;
+	 private String diagnosis;
+	 private String therapy;
+	 private String note;
+	public Report(long id, String diagnosis, String therapy, String note) {
 		super();
-		PatientID = patientID;
-		DoctorID = doctorID;
-		Description = description;
-		Office = office;
-		Date = date;
+		this.id = id;
+		this.diagnosis = diagnosis;
+		this.therapy = therapy;
+		this.note = note;
 	}
-	public long getPatientID() {
-		return PatientID;
+	   public Report() {
+	    }
+	public long getId() {
+		return id;
 	}
-	public void setPatientID(long patientID) {
-		PatientID = patientID;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public long getDoctorID() {
-		return DoctorID;
+	public String getDiagnosis() {
+		return diagnosis;
 	}
-	public void setDoctorID(long doctorID) {
-		DoctorID = doctorID;
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
 	}
-	public String getDescription() {
-		return Description;
+	public String getTherapy() {
+		return therapy;
 	}
-	public void setDescription(String description) {
-		Description = description;
+	public void setTherapy(String therapy) {
+		this.therapy = therapy;
 	}
-	public String getOffice() {
-		return Office;
+	public String getNote() {
+		return note;
 	}
-	public void setOffice(String office) {
-		Office = office;
-	}
-	public Date getDate() {
-		return Date;
-	}
-	public void setDate(Date date) {
-		Date = date;
+	public void setNote(String note) {
+		this.note = note;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(Date, Description, DoctorID, Office, PatientID);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((diagnosis == null) ? 0 : diagnosis.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((note == null) ? 0 : note.hashCode());
+		result = prime * result + ((therapy == null) ? 0 : therapy.hashCode());
+		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -66,9 +60,32 @@ public class Report {
 		if (getClass() != obj.getClass())
 			return false;
 		Report other = (Report) obj;
-		return Objects.equals(Date, other.Date) && Objects.equals(Description, other.Description)
-				&& DoctorID == other.DoctorID && Objects.equals(Office, other.Office) && PatientID == other.PatientID;
+		if (diagnosis == null) {
+			if (other.diagnosis != null)
+				return false;
+		} else if (!diagnosis.equals(other.diagnosis))
+			return false;
+		if (id != other.id)
+			return false;
+		if (note == null) {
+			if (other.note != null)
+				return false;
+		} else if (!note.equals(other.note))
+			return false;
+		if (therapy == null) {
+			if (other.therapy != null)
+				return false;
+		} else if (!therapy.equals(other.therapy))
+			return false;
+		return true;
 	}
+	@Override
+	public String toString() {
+		return "Report [id=" + id + ", diagnosis=" + diagnosis + ", therapy=" + therapy + ", note=" + note + "]";
+	}
+	
+
+
 	
 	
 }

@@ -2,13 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReportsDataService } from '../service/data/reports-data.service';
 
+// export class Report{
+//   constructor(
+//     public patientID:number,
+//     public doctorID:number,
+//     public office:string,
+//     public description: string,
+//     public date: Date
+//   ){
+
+//   }
+  
+// }
 export class Report{
   constructor(
-    public patientID:number,
-    public doctorID:number,
-    public office:string,
-    public description: string,
-    public date: Date
+    public id:number,
+    public diagnosis:string,
+    public therapy:string,
+    public note: string,
+
   ){
 
   }
@@ -45,32 +57,33 @@ export class ReportComponent implements OnInit {
   refreshReports(){
       this.reportsservice.retrieveAllReports('admin').subscribe(
         response=>{
-          console.log(response);
+     
           this.reports=response;
+          console.log(this.reports);
         }
       )
   }
-  deleteReport( patientID:number, doctorID:number){
+  deleteReport( id:number){
     
-      console.log(`delete report ${doctorID}-${patientID}`)
+      console.log(`delete report ${id}`)
   
-      this.reportsservice.deleteReport(doctorID,patientID).subscribe(
+      this.reportsservice.deleteReport(id).subscribe(
         response=>{
           console.log(response);
          
-          this.message=`Delete of Report ${doctorID}-${patientID}... Delete Successfull`
+          this.message=`Delete of Report ${id}... Delete Successfull`
             this.refreshReports();
           }
           
         
       )
   }
-  updateReport(patientID:number,doctorID:number){
-    this.router.navigate(['reports',`${doctorID}`,`${patientID}`])
+  updateReport(id:number){
+    this.router.navigate(['reports',`${id}`])
 
   }
   addReport(){
-    this.router.navigate(['reports',-1,-1])
+    this.router.navigate(['reports',-1])
 
   }
   

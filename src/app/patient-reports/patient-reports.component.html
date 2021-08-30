@@ -1,4 +1,5 @@
 <div><h1>
+
     Reports
 </h1></div>
 
@@ -9,21 +10,23 @@
     <thead>
         <tr>
          
-            <th>Patient id</th>
-            <th>Office</th>
-            <th>Description</th>
-            <th>Date</th>
-           
+            <th>ID</th>
+            <th>Diagnosis</th>
+            <th>Therapy</th>
+            <th>Note</th>
+
+ 
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let report of reports">
           
-            <td>{{report.patientID}}</td>
-            <td>{{report.office}}</td>
-            <td>{{report.description }}</td>
-            <td>{{report.date}}</td>
-           
+            <td>{{report.id}}</td>
+            <td>{{report.diagnosis}}</td>
+            <td>{{report.therapy }}</td>
+            <td>{{report.note}}</td>
+        
+        </tr>
     </tbody>
     </table>
 </div>

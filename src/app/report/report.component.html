@@ -10,10 +10,10 @@
     <thead>
         <tr>
          
-            <th>Patient id</th>
-            <th>Office</th>
-            <th>Description</th>
-            <th>Date</th>
+            <th>ID</th>
+            <th>Diagnosis</th>
+            <th>Therapy</th>
+            <th>Note</th>
             <th>Update</th>
             <th>Delete</th>
         </tr>
@@ -21,12 +21,12 @@
     <tbody>
         <tr *ngFor="let report of reports">
           
-            <td>{{report.patientID}}</td>
-            <td>{{report.office}}</td>
-            <td>{{report.description }}</td>
-            <td>{{report.date}}</td>
-            <td><button (click)="updateReport(report.patientID,report.doctorID)" class="btn btn-success">Update</button></td>
-            <td><button (click)="deleteReport(report.patientID,report.doctorID)" class="btn btn-warning">Delete</button></td>
+            <td>{{report.id}}</td>
+            <td>{{report.diagnosis}}</td>
+            <td>{{report.therapy }}</td>
+            <td>{{report.note}}</td>
+            <td><button (click)="updateReport(report.id)" class="btn btn-success">Update</button></td>
+            <td><button (click)="deleteReport(report.id)" class="btn btn-warning">Delete</button></td>
         </tr>
     </tbody>
     </table>
