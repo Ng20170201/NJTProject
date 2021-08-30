@@ -1,1 +1,29 @@
-<p>patient-reports works!</p>
+<div><h1>
+    Reports
+</h1></div>
+
+<div class="alert alert-success" *ngIf='message!=""'>{{message}}</div>
+<div class="container">
+<table class="table">
+    <caption>List reports</caption>
+    <thead>
+        <tr>
+         
+            <th>Patient id</th>
+            <th>Office</th>
+            <th>Description</th>
+            <th>Date</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let report of reports">
+          
+            <td>{{report.patientID}}</td>
+            <td>{{report.office}}</td>
+            <td>{{report.description }}</td>
+            <td>{{report.date}}</td>
+           
+    </tbody>
+    </table>
+</div>

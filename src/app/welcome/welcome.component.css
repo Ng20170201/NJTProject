@@ -1,0 +1,18 @@
+h2 {text-align: center;}
+
+#div1{
+    float: left;
+    width: 30%;
+    
+}
+
+#div2{
+    float:right;
+    width:30%;
+}
+
+
+#div3{
+    width: 40%;
+    margin: 0 auto;
+}
