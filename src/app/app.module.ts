@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PatientComponent } from './patient/patient.component';
 
 import { OneReportComponent } from './one-report/one-report.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -38,9 +40,7 @@ import { OneReportComponent } from './one-report/one-report.component';
     PatientReportsComponent,
     PatinetReviewsComponent,
     WelcomeDoctorComponent,
-
-    PatientComponent
-
+    PatientComponent,
     OneReportComponent
 
   ],
@@ -48,7 +48,9 @@ import { OneReportComponent } from './one-report/one-report.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule 
+    CarouselModule,
+    HttpClientModule,
+    NgbModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

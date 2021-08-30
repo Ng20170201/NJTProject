@@ -1,24 +1,40 @@
 
-<h1>Welcome</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-<div>
 
-Welcome {{name}}
+<div id="div1">
 
-Welcome to awsome app 
+
+<img [src]="url" height="100"><br>
+<input type="file" (change)="onSelectFile($event)">
+
 </div>
-<div>
-You can menage your list <a routerLink="/list-patient">here</a>
+<div id="div2">
+    <h3 style="color: blue;">Visiting hours</h3>
+</div>
+<div id="div3">
+    <h3 style="color: blue;">Contact Us</h3>
 </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<div class="container">
-    Click here to get a customized welcome message
-    <button (click)="getWelcomeMessageWithParametar()" class="btn btn-success">Get welcome message</button>
-</div>
 
-<div class="container" *ngIf="welcomeMessageFromService">
-    <h2>You are customized welcome message</h2>
-    {{welcomeMessageFromService}}
-   
-</div>
+<div><h2 style="color: DodgerBlue;">Make sure the quality of service</h2></div>
+<owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide>
+      <img src="./assets/image1.jpg">
+  </ng-template>  
+  <ng-template carouselSlide>
+    <img src="./assets/image2.jpg">
+  </ng-template>  
+  <ng-template carouselSlide>
+    <img src="./assets/image3.jpg">
+  </ng-template>  
+</owl-carousel-o>
+<div> </div>
+
