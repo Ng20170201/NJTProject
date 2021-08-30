@@ -41,7 +41,6 @@ import { OneReportComponent } from './one-report/one-report.component';
 
     PatientComponent
 
-    OneReportComponent
 
   ],
   imports: [
