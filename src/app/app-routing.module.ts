@@ -28,8 +28,7 @@ const routes: Routes = [
   {path:'patient-reviews',component:PatinetReviewsComponent,canActivate:[RouteGuardService]},
   {path:'patient-reports',component:PatientReportsComponent,canActivate:[RouteGuardService]},
   {path:'patients/:id',component:PatientComponent,canActivate:[RouteGuardDoctorService]},
-
-  {path:'reports/:doctorId/:patientId',component:OneReportComponent,canActivate:[RouteGuardDoctorService]},
+  {path:'reports/:id',component:OneReportComponent,canActivate:[RouteGuardDoctorService]},
   
 
   {path:'**',component:ErrorComponent}
