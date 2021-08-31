@@ -50,7 +50,7 @@ deleteReview(idD:number, idP:number){
   )
 }
 updateReview(idD:number, idP:number){
-  this.router.navigate(['reviews',1,`${idD}`])
+  this.router.navigate(['reviews',1,`${idP}`])
 
 }
 addReview(){
