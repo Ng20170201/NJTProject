@@ -31,6 +31,8 @@ public class ReviewsResource {
 		return ReviewService.findAll();
 		
 	}
+	
+	
 	@GetMapping("/users/{username}/reviews/{doctorId}/{patientId}")
 	public Review getReview(@PathVariable String username, @PathVariable long patientId,@PathVariable long doctorId){
 		return ReviewService.findById(doctorId,patientId);
@@ -53,7 +55,7 @@ public class ReviewsResource {
 		Review reviewUpdate=ReviewService.save(review);
 		return new ResponseEntity<Review>(review,HttpStatus.OK);
 	}
-	@PostMapping("/users/{username}/reviews")
+	@PostMapping("/users/{username}/reviews/{doctorId}/{patientId}")
 	public  ResponseEntity<Void> updateReport(@PathVariable String username, @RequestBody Review review){
 		Review createdReview=ReviewService.save(review);
 		

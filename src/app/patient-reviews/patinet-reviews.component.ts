@@ -13,7 +13,7 @@ constructor(
   public office:string,
   public description: string,
   public date: Date,
-  public periodID:number
+  public periodID:number | null
   
 ){}
 }

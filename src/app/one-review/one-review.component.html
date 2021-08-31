@@ -1,0 +1,37 @@
+<h1>Review </h1>
+
+<div class="container">
+<form (ngSubmit)= " !reportForm.invalid && SaveReview()" #reportForm="ngForm">
+
+         <!-- <fieldset class="form-group">
+            <label>Patient</label>
+    <input type="text"  class="form-control" [(ngModel)]="review.patientID"  name="Patient" required="required" minlength="5">
+    </fieldset> -->
+
+
+
+<fieldset class="form-group">
+    <label>Ofiice</label>
+    <input type="text"  class="form-control" [(ngModel)]="review.office"  name="Office" required="required" minlength="5">
+</fieldset>
+
+<fieldset class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" [(ngModel)]="review.description"  name="Description" required="required">
+</fieldset>
+
+<!-- <fieldset class="form-group">
+    <label>Date</label>
+    <input [ngModel]="review.date | date:'yyyy-MM-dd'" (ngModel)="review.date"
+    class="form-control" type="date" id="date" name="date" size="40" name="birthday"
+    required="required">
+</fieldset>
+
+<fieldset class="form-group">
+    <label>Period</label>
+    <input type="text" class="form-control" [(ngModel)]="review.periodID"  name="Period" required="required">
+</fieldset> -->
+
+<button type="submit" class="btn btn-success ">Save</button>
+</form>
+</div>

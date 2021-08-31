@@ -23,6 +23,7 @@ import { PatientComponent } from './patient/patient.component';
 
 import { OneReportComponent } from './one-report/one-report.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OneReviewComponent } from './one-review/one-review.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -42,7 +43,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PatinetReviewsComponent,
     WelcomeDoctorComponent,
     PatientComponent,
-    OneReportComponent
+    OneReportComponent,
+    OneReviewComponent
 
   ],
   imports: [
