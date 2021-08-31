@@ -42,9 +42,10 @@ public class ReviewHardcodeService {
 		return null;
 	}
 	public Review save(Review review) {
-		if((review.getDoctorID()==-1 || review.getDoctorID()==0 )&& 
-				review.getPatientID()==-1 || review.getPatientID()==0) {
-			review.setDoctorID(10);
+//		if((review.getDoctorID()==-1 || review.getDoctorID()==0 )&& 
+//				review.getPatientID()==-1 || review.getPatientID()==0) {
+		if(review.getPatientID() == -1){
+			review.setDoctorID(1);
 			review.setPatientID(++idCounter);
 			reviews.add(review);
 			
