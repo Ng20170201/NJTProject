@@ -17,13 +17,14 @@ import { ReportComponent } from './report/report.component';
 import { PatientReportsComponent } from './patient-reports/patient-reports.component';
 import { PatinetReviewsComponent } from './patient-reviews/patinet-reviews.component';
 import { WelcomeDoctorComponent } from './welcome-doctor/welcome-doctor.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { PatientComponent } from './patient/patient.component';
 
 import { OneReportComponent } from './one-report/one-report.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OneReviewComponent } from './one-review/one-review.component';
+import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -56,7 +57,9 @@ import { OneReviewComponent } from './one-review/one-review.component';
     NgbModule,
     // NgbModule 
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass : HttpIntercepterBasicAuthService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
