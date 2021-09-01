@@ -1,4 +1,4 @@
-package com.NJTProject.rest.webservices.restwebservices.basic.auth;
+package com.NJTProject.rest.basic.auth;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
