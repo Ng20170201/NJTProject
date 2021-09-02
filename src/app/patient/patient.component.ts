@@ -9,7 +9,7 @@ import { PatientDataService } from '../service/data/patient-data.service';
   styleUrls: ['./patient.component.css']
 })
 export class PatientComponent implements OnInit {
-  id: string = "";
+  id: number=0;
   patient!: Patient;
   constructor(
     private patientService: PatientDataService,
@@ -26,7 +26,7 @@ export class PatientComponent implements OnInit {
 
 
 
-    if ( this.id!='-1') {
+    if ( this.id!=-1) {
 
       this.patientService.getPatient('nikola', this.id).subscribe(
         data => this.patient = data
@@ -35,7 +35,7 @@ export class PatientComponent implements OnInit {
 
   }
   savePatient() {
-    if (this.id =='-1' ) {
+    if (this.id ==-1 ) {
       //create todo
       this.patientService.createPatient('admin', this.patient).subscribe(
         response => {

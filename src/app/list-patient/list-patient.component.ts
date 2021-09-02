@@ -4,7 +4,7 @@ import { PatientDataService } from '../service/data/patient-data.service';
 
 export class Patient {
   constructor(
-    public id: string,
+    public id: number,
     public ucin: number|null,
     public name: string,
     public surname: string,
@@ -47,7 +47,7 @@ export class ListPatientComponent implements OnInit {
     )
   }
 
-  deletePatient(id: string) {
+  deletePatient(id: number) {
     this.patientService.deletePatient('admin', id).subscribe(
       response => {
         console.log("Successful deleting: " + response);
@@ -60,11 +60,11 @@ export class ListPatientComponent implements OnInit {
     )
     this.refreshPatients();
   }
-  updatePatient(id:string){
+  updatePatient(id:number){
     console.log(`update ${id}`)
     this.router.navigateByUrl(`patients/${id}`);
   }
   addPatient(){
-    this.router.navigate(['patients',"-1"]);
+    this.router.navigate(['patients',-1]);
   }
 }

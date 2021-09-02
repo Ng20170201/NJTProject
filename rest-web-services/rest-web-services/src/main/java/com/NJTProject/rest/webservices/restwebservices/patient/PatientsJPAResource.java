@@ -50,20 +50,20 @@ public class PatientsJPAResource {
     public ResponseEntity<Void> deletePatient(@PathVariable String username, @PathVariable long id) {
       
         patientsJpaRepository.deleteById(id);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/jpa/users/{username}/patients/{id}")
     public ResponseEntity<Patient> updatePatient(@PathVariable String username, @PathVariable String id, @RequestBody Patient patient) {
-        Patient patientUpdated = patientService.save(patient);
-        System.out.println("Procitan pacijent u put mapping: "+patient);
+        Patient patientUpdated = patientsJpaRepository.save(patient);
+       // System.out.println("Procitan pacijent u put mapping: "+patient);
         return new ResponseEntity<Patient>(patient, HttpStatus.OK);
     }
 
     @PostMapping("/jpa/users/{username}/patients")
-    public ResponseEntity<Void> addPatient(@PathVariable String username, @RequestBody Patient patient) {
+    public ResponseEntity<Void> createPatient(@PathVariable String username, @RequestBody Patient patient) {
         System.out.println("Procitan pacijent: "+patient);
-        Patient patentAdded = patientService.save(patient);
+        Patient patentAdded = patientsJpaRepository.save(patient);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(patentAdded.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
