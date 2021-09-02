@@ -52,13 +52,14 @@ export class ListPatientComponent implements OnInit {
       response => {
         console.log("Successful deleting: " + response);
         this.message = "Successful deleting";
+        this.refreshPatients();
       },
       error => {
         console.log("Error while deleting")
         this.message = "Error while deleting";
       }
     )
-    this.refreshPatients();
+
   }
   updatePatient(id:number){
     console.log(`update ${id}`)
