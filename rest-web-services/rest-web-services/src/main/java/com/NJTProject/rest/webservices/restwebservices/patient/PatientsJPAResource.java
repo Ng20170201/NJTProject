@@ -47,11 +47,9 @@ public class PatientsJPAResource {
     }
 
     @DeleteMapping("/jpa/users/{username}/patients/{id}")
-    public ResponseEntity<Void> deletePatient(@PathVariable String username, @PathVariable String id) {
-        Patient patient = patientService.deletePatientById(id);
-        if (patient != null) {
-            return ResponseEntity.noContent().build();
-        }
+    public ResponseEntity<Void> deletePatient(@PathVariable String username, @PathVariable long id) {
+      
+        patientsJpaRepository.deleteById(id);
         return ResponseEntity.notFound().build();
     }
 
