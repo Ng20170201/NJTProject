@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
+import com.NJTProject.rest.webservices.restwebservices.patient.Patient;
+
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -13,7 +16,7 @@ import java.util.ArrayList;
 @Service
 public class ReportHardcodeService {
 		private static List<Report> reports=new ArrayList();
-		private static int idCounter=0;
+		private static long idCounter=0;
 		
 		static {
 			reports.add(new Report(++idCounter,"Diagnosys1","Therapy1","Note1"));

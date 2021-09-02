@@ -8,12 +8,22 @@ package com.NJTProject.rest.webservices.restwebservices.patient;
 import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
 /**
  *
  * @author Andjela
  */
-class Patient {
 
+
+public class Patient {
+
+	
     private String id;
     private Integer UCIN;
     private String name;
@@ -164,9 +174,11 @@ class Patient {
 
     
     @Override
-    public String toString() {
-        return "Patient{" + "id=" + id + ", UCIN=" + UCIN + ", name=" + name + ", surname=" + surname + ", birthDate=" + birthDate + ", email=" + email + ", telephone=" + telephone + ", password=" + password + '}';
-    }
+	public String toString() {
+		return "Patient [id=" + id + ", UCIN=" + UCIN + ", name=" + name + ", surname=" + surname + ", birthDate="
+				+ birthDate + ", email=" + email + ", telephone=" + telephone + ", password=" + password + ", doctor="
+				+ doctor + "]";
+	}
 
     @Override
     public int hashCode() {

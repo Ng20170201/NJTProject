@@ -3,11 +3,18 @@ package com.NJTProject.rest.webservices.restwebservices.Review;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import com.NJTProject.rest.webservices.restwebservices.Report.Report;
 
+@Entity
 public class Review {
-	 private long PatientID;
-	 private long DoctorID;
+	@Id
+	@GeneratedValue
+	 private Long PatientID;
+	 private Long DoctorID;
 	 private String Description;
 	 private String Office;
 	 private Date Date;
@@ -16,7 +23,7 @@ public class Review {
 	 public Review() {
 }
 	 
-		public Review(long patientID, long doctorID, String description, String office, java.util.Date date, long PeriodID) {
+		public Review(Long patientID, long doctorID, String description, String office, java.util.Date date, long PeriodID) {
 			super();
 			PatientID = patientID;
 			DoctorID = doctorID;
@@ -25,28 +32,28 @@ public class Review {
 			Date = date;
 			periodID = PeriodID;
 		}
-		public long getPatientID() {
+		public Long getPatientID() {
 			return PatientID;
 		}
 		
 		
 		
 		
-		public long getPeriodID() {
+		public Long getPeriodID() {
 			return periodID;
 		}
 
-		public void setPeriodID(long periodID) {
+		public void setPeriodID(Long periodID) {
 			this.periodID = periodID;
 		}
 
-		public void setPatientID(long patientID) {
+		public void setPatientID(Long patientID) {
 			PatientID = patientID;
 		}
 		public long getDoctorID() {
 			return DoctorID;
 		}
-		public void setDoctorID(long doctorID) {
+		public void setDoctorID(Long doctorID) {
 			DoctorID = doctorID;
 		}
 		public String getDescription() {

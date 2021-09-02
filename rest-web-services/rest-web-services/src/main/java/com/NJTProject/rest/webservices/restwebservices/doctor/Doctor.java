@@ -5,12 +5,22 @@
  */
 package com.NJTProject.rest.webservices.restwebservices.doctor;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author Andjela
  */
+
 public class Doctor {
-    private String id;
+    @Override
+	public String toString() {
+		return "Doctor [id=" + id + ", name=" + name + ", surname=" + surname + ", specialization=" + specialization
+				+ ", workingShift=" + workingShift + ", username=" + username + ", password=" + password + "]";
+	}
+
+	private String id;
     private String name;
     private String surname;
     private String specialization;

@@ -12,7 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReviewHardcodeService {
 	private static List<Review> reviews=new ArrayList();
-	private static int idCounter=0;
+	private static long idCounter=0;
+	private static long jedan=1;
 	
 	static {
 		reviews.add(new Review(++idCounter,1,"Description1","Office1",new Date(),5));
@@ -45,7 +46,7 @@ public class ReviewHardcodeService {
 //		if((review.getDoctorID()==-1 || review.getDoctorID()==0 )&& 
 //				review.getPatientID()==-1 || review.getPatientID()==0) {
 		if(review.getPatientID() == -1){
-			review.setDoctorID(1);
+			review.setDoctorID(jedan);
 			review.setPatientID(++idCounter);
 			reviews.add(review);
 			
