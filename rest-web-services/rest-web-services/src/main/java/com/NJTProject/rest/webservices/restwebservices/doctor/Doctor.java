@@ -6,21 +6,19 @@
 package com.NJTProject.rest.webservices.restwebservices.doctor;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.Id;
 
 /**
  *
  * @author Andjela
  */
-
+@Entity
 public class Doctor {
-    @Override
-	public String toString() {
-		return "Doctor [id=" + id + ", name=" + name + ", surname=" + surname + ", specialization=" + specialization
-				+ ", workingShift=" + workingShift + ", username=" + username + ", password=" + password + "]";
-	}
 
-	private String id;
+   
+
+    @Id
+    private Long id;
     private String name;
     private String surname;
     private String specialization;
@@ -31,7 +29,7 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(String id, String name, String surname, String specialization, String workingShift, String username, String password) {
+    public Doctor(Long id, String name, String surname, String specialization, String workingShift, String username, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -44,14 +42,14 @@ public class Doctor {
     /**
      * @return the id
      */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -138,6 +136,10 @@ public class Doctor {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
+     @Override
+    public String toString() {
+        return "Doctor [id=" + id + ", name=" + name + ", surname=" + surname + ", specialization=" + specialization
+                + ", workingShift=" + workingShift + ", username=" + username + ", password=" + password + "]";
+    }
+
 }

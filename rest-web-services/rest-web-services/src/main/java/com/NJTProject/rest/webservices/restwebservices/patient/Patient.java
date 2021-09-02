@@ -5,13 +5,12 @@
  */
 package com.NJTProject.rest.webservices.restwebservices.patient;
 
-import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 
 
@@ -20,11 +19,13 @@ import javax.persistence.Table;
  * @author Andjela
  */
 
-
+@Entity
+//@Table(name="..")
 public class Patient {
 
-	
-    private String id;
+	@Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Integer UCIN;
     private String name;
     private String surname;
@@ -32,12 +33,13 @@ public class Patient {
     private String email;
     private String telephone;
     private String password;
-    private Doctor doctor;
+    
+  
 
     public Patient() {
     }
 
-    public Patient(String id, Integer UCIN, String name, String surname, Date birthDate, String email, String telephone, String password, Doctor doctor) {
+    public Patient(Long id, Integer UCIN, String name, String surname, Date birthDate, String email, String telephone, String password) {
         this.id = id;
         this.UCIN = UCIN;
         this.name = name;
@@ -46,7 +48,6 @@ public class Patient {
         this.email = email;
         this.telephone = telephone;
         this.password = password;
-        this.doctor = doctor;
     }
     
 
@@ -55,14 +56,14 @@ public class Patient {
     /**
      * @return the id
      */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -164,20 +165,14 @@ public class Patient {
         this.password = password;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
+  
 
     
     @Override
 	public String toString() {
 		return "Patient [id=" + id + ", UCIN=" + UCIN + ", name=" + name + ", surname=" + surname + ", birthDate="
 				+ birthDate + ", email=" + email + ", telephone=" + telephone + ", password=" + password + ", doctor="
-				+ doctor + "]";
+				+ "]";
 	}
 
     @Override

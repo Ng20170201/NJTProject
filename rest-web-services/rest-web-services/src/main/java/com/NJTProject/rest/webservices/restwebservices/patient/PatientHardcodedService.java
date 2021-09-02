@@ -5,7 +5,6 @@
  */
 package com.NJTProject.rest.webservices.restwebservices.patient;
 
-import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,15 +18,13 @@ import org.springframework.stereotype.Service;
 class PatientHardcodedService {
 
     private static List<Patient> patients = new ArrayList<Patient>();
-    private static int idCounter = 0;
+    private static long idCounter = 0;
 
     static {
-        Doctor doctor = new Doctor("doktor", "Doktor", "Test", "Specijalizacija", "3", "admin", "admin");
-        Doctor doctor2 = new Doctor("doktor", "Doktor", "Test", "Specijalizacija", "3", "admin2", "admin2");
 
-        patients.add(new Patient(++idCounter + "", 123456, "Patient", "First", new Date(), "1@gmail.com", "12345678", "first", doctor));
-        patients.add(new Patient(++idCounter + "", 111111, "Patient", "Second", new Date(), "2@gmail.com", "0123457", "second", doctor2));
-        patients.add(new Patient(++idCounter + "", 222222, "Patient", "Thirs", new Date(), "3@gmail.com", "123474841", "third", doctor));
+        patients.add(new Patient(++idCounter, 123456, "Patient", "First", new Date(), "1@gmail.com", "12345678", "first"));
+        patients.add(new Patient(++idCounter, 111111, "Patient", "Second", new Date(), "2@gmail.com", "0123457", "second"));
+        patients.add(new Patient(++idCounter, 222222, "Patient", "Thirs", new Date(), "3@gmail.com", "123474841", "third"));
 
     }
 
@@ -56,11 +53,11 @@ class PatientHardcodedService {
     public Patient save(Patient p) {
        
         if (p.getId()==null | p.getId().equals("-1")) {
-            p.setId(++idCounter + "");
+            p.setId(++idCounter);
             patients.add(p);
 
         } else {
-            deletePatientById(p.getId());
+            deletePatientById(p.getId()+"");
             patients.add(p);
         }
         return p;
