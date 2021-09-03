@@ -22,7 +22,7 @@ export class PatientComponent implements OnInit {
 
 
     this.id = this.route.snapshot.params['id'];
-    this.patient = new Patient(this.id, null, "", "", new Date(), "", "", "");
+    this.patient = new Patient(this.id, "", "", "", new Date(), "", "", "");
 
 
 

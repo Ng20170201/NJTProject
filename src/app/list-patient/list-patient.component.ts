@@ -5,7 +5,7 @@ import { PatientDataService } from '../service/data/patient-data.service';
 export class Patient {
   constructor(
     public id: number,
-    public ucin: number|null,
+    public ucin: string,
     public name: string,
     public surname: string,
     public birthDate: Date,

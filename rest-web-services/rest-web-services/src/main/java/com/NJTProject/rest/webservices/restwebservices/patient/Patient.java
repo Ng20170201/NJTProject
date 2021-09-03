@@ -26,7 +26,7 @@ public class Patient {
 	@Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer UCIN;
+    private String UCIN;
     private String name;
     private String surname;
     private Date birthDate;
@@ -39,7 +39,7 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(Long id, Integer UCIN, String name, String surname, Date birthDate, String email, String telephone, String password) {
+    public Patient(Long id, String UCIN, String name, String surname, Date birthDate, String email, String telephone, String password) {
         this.id = id;
         this.UCIN = UCIN;
         this.name = name;
@@ -70,14 +70,14 @@ public class Patient {
     /**
      * @return the UCIN
      */
-    public Integer getUCIN() {
+    public String getUCIN() {
         return UCIN;
     }
 
     /**
      * @param UCIN the UCIN to set
      */
-    public void setUCIN(Integer UCIN) {
+    public void setUCIN(String UCIN) {
         this.UCIN = UCIN;
     }
 
