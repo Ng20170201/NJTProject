@@ -13,11 +13,32 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 public class BcryptEncoderTest {
 
+    private static String textPass;
+    private static String encodedPassword;
+    private static BCryptPasswordEncoder encoder;
+
     public static void main(String[] args) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        for (int i = 1; i <= 10; i++) {
+
+        /*  for (int i = 1; i <= 10; i++) {
             String encodedString = encoder.encode("nikola");
             System.out.println(encodedString);
+        }*/
+        encoder = new BCryptPasswordEncoder();
+       
+
+    }
+
+    public void setPassword(String textPass) {
+        this.textPass = textPass;
+    }
+
+    public  String getEncodedPassword() throws Exception {
+
+        if (!textPass.isEmpty()) {
+            encodedPassword = encoder.encode(textPass);
+            return encodedPassword;
+        } else {
+            throw new Exception("TextPass problem");
         }
     }
 

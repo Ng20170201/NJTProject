@@ -7,7 +7,7 @@
  * Author:  Andjela
  * Created: Sep 2, 2021
  */
-
+/*
 create table patient
 (
 id  bigint  not null,                      
@@ -19,4 +19,4 @@ email varchar(50),
 telephone  varchar(50),       
 password bigint unsigned,
 primary key (`id`)     
-);
+);*/
