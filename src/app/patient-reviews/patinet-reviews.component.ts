@@ -6,16 +6,53 @@ import { PatientDataService } from '../service/data/patient-data.service';
 import { ReviewsDataService } from '../service/data/reviews-data.service';
 
 
-export class Review{
-constructor(
-  public patientID:number,
-  public doctorID:number,
-  public office:string,
-  public description: string,
-  public date: Date,
-  public periodID:number | null
-  
-){}
+export class Review {
+  constructor(
+    public patientId: number,
+    public doctorId: number,
+    public office: string,
+    public description: string,
+    public date: Date,
+    public periodID: number | null
+
+  ) { }
+}
+export class DoctorDB {
+  constructor(
+    public id: number,
+    public name: string,
+    public surname: string,
+    public specialization: string,
+    public workingshift: string,
+    public username: string,
+    public password: string,
+
+
+  ) { }
+}
+export class PatientDB {
+  constructor(
+    public id: number,
+    public UCIN: string,
+    public name: string,
+    public surname: string,
+    public birthdate: Date,
+    public email: string,
+    public telephone: string,
+    public password: string
+
+  ) { }
+}
+export class ReviewDB {
+  constructor(
+    public patient: PatientDB,
+    public doctor: DoctorDB,
+    public office: string,
+    public description: string,
+    public date: Date,
+    public periodID: number | null
+
+  ) { }
 }
 
 @Component({
@@ -27,33 +64,34 @@ constructor(
 
 
 export class PatinetReviewsComponent implements OnInit {
- 
-  message : String=""
-  closeResult:string=""
-  reviews:Array<Review>=new Array<Review>()
-  
+
+  message: String = ""
+  closeResult: string = ""
+  reviews: Review[] = [];
+
   //    new Review(1,'Diagnosis 1','Therapy 1','Note 1'),
   //    new Review(2,'Diagnosis 2','Therapy 2','Note 2'),
   //    new Review(3,'Diagnosis 3','Therapy 3','Note 3')
 
   //  ]
-   
-constructor(private reviewsservice: ReviewsDataService
-  // private httpClient:HttpClient,
-  // private modalService:NgbModule,
-  // private modalDismiss:ModalDismissReasons,
-  // private router:Router
 
-){
+  constructor(private reviewsservice: ReviewsDataService
+    // private httpClient:HttpClient,
+    // private modalService:NgbModule,
+    // private modalDismiss:ModalDismissReasons,
+    // private router:Router
 
-}
- 
+  ) {
+
+  }
+
 
   ngOnInit(): void {
     this.reviewsservice.retrieveAllReviews('nikola').subscribe(
-      response=>{
+      response => {
         console.log(response);
-        this.reviews=response;
+       // this.reviews = response;
+       console.log("Nije jos uradjeno");
       }
     )
   }
@@ -81,7 +119,7 @@ constructor(private reviewsservice: ReviewsDataService
   // }
 
 
- 
+
 }
 
 

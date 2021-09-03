@@ -1,11 +1,7 @@
 package com.NJTProject.rest.webservices.restwebservices.Review;
 
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Date;
-
-
-
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 
@@ -36,7 +32,7 @@ public class ReviewHardcodeService {
 
 	Review findById(long doctorId,long patientId) {
 		for(Review review:reviews) {
-			if(review.getPatientID()==patientId && review.getDoctorID()==doctorId) {
+			if(review.getPatient().getId()==patientId && review.getDoctor().getId()==doctorId) {
 				return review;
 			}
 		}
@@ -45,14 +41,14 @@ public class ReviewHardcodeService {
 	public Review save(Review review) {
 //		if((review.getDoctorID()==-1 || review.getDoctorID()==0 )&& 
 //				review.getPatientID()==-1 || review.getPatientID()==0) {
-		if(review.getPatientID() == -1){
-			review.setDoctorID(jedan);
-			review.setPatientID(++idCounter);
+		if(review.getPatient().getId() == -1){
+			review.getDoctor().setId(jedan);
+			review.getPatient().setId(++idCounter);
 			reviews.add(review);
 			
 		}
 		else {
-			deleteById(review.getDoctorID(), review.getPatientID());
+			deleteById(review.getDoctor().getId(), review.getPatient().getId());
 			reviews.add(review);
 		}
 		return review;

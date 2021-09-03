@@ -5,8 +5,15 @@
  */
 package com.NJTProject.rest.webservices.restwebservices.doctor;
 
+import com.NJTProject.rest.webservices.restwebservices.Department.Department;
+import com.NJTProject.rest.webservices.restwebservices.Review.Review;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -14,29 +21,34 @@ import javax.persistence.Id;
  */
 @Entity
 public class Doctor {
-
-   
-
     @Id
     private Long id;
     private String name;
     private String surname;
     private String specialization;
-    private String workingShift;
+    private String workingshift;
     private String username;
     private String password;
+    
+    @ManyToOne
+    @JoinColumn(name="departmentid")
+    private Department department;
+    
+    @OneToMany(mappedBy="doctor",cascade = CascadeType.ALL)
+    Set<Review>reviews;
 
     public Doctor() {
     }
 
-    public Doctor(Long id, String name, String surname, String specialization, String workingShift, String username, String password) {
+    public Doctor(Long id, String name, String surname, String specialization, String workingshift, String username, String password, Department department) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.specialization = specialization;
-        this.workingShift = workingShift;
+        this.workingshift = workingshift;
         this.username = username;
         this.password = password;
+        this.department = department;
     }
 
     /**
@@ -96,17 +108,17 @@ public class Doctor {
     }
 
     /**
-     * @return the workingShift
+     * @return the workingshift
      */
-    public String getWorkingShift() {
-        return workingShift;
+    public String getWorkingshift() {
+        return workingshift;
     }
 
     /**
-     * @param workingShift the workingShift to set
+     * @param workingshift the workingshift to set
      */
-    public void setWorkingShift(String workingShift) {
-        this.workingShift = workingShift;
+    public void setWorkingshift(String workingshift) {
+        this.workingshift = workingshift;
     }
 
     /**
@@ -136,10 +148,21 @@ public class Doctor {
     public void setPassword(String password) {
         this.password = password;
     }
-     @Override
-    public String toString() {
-        return "Doctor [id=" + id + ", name=" + name + ", surname=" + surname + ", specialization=" + specialization
-                + ", workingShift=" + workingShift + ", username=" + username + ", password=" + password + "]";
+
+    /**
+     * @return the department
+     */
+    public Department getDepartment() {
+        return department;
     }
+
+    /**
+     * @param department the department to set
+     */
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+  
 
 }

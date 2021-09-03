@@ -2,7 +2,6 @@ package com.NJTProject.rest.webservices.restwebservices.Review;
 
 import java.net.URI;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.NJTProject.rest.webservices.restwebservices.Report.ReportJpaRepository;
-
 
 
 
@@ -27,12 +24,18 @@ import com.NJTProject.rest.webservices.restwebservices.Report.ReportJpaRepositor
 public class ReviewsJpaResource {
 	@Autowired
 	private ReviewHardcodeService ReviewService;
+        @Autowired
 	private ReviewJpaRepository reviewJpaRepository;
 
-	@GetMapping("/jpa/users/{username}/reviews/")
+	@GetMapping("/jpa/users/{username}/reviews")
 	public List<Review> getAllReviews(@PathVariable String username){
 	//	return ReviewService.findAll();
-		System.out.println(reviewJpaRepository.findAll());
+		List<Review>reviews=reviewJpaRepository.findAll();
+                System.out.println("Citam reviews");
+                for(Review r : reviews){
+                    
+                    System.out.println("Procitao:"+r);
+                }
 		return reviewJpaRepository.findAll();
 	}
 	
@@ -64,7 +67,7 @@ public class ReviewsJpaResource {
 		Review createdReview=ReviewService.save(review);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().
-			 path("/{doctorId}/{patientId}").buildAndExpand(createdReview.getDoctorID(),createdReview.getPatientID()).toUri();
+			 path("/{doctorId}/{patientId}").buildAndExpand(createdReview.getDoctor().getId(),createdReview.getPatient().getId()).toUri();
 	
 		
 		

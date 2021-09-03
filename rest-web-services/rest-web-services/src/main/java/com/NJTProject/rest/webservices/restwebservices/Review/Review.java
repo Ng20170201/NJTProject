@@ -1,127 +1,155 @@
 package com.NJTProject.rest.webservices.restwebservices.Review;
 
+import com.NJTProject.rest.webservices.restwebservices.Report.Report;
+import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
+import com.NJTProject.rest.webservices.restwebservices.patient.Patient;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
-
+import java.util.Set;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.NJTProject.rest.webservices.restwebservices.Report.Report;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Review {
-	@Id
-	@GeneratedValue
-	 private Long patientid;
-	 private Long doctorid;
-	 private String description;
-	 private String office;
-	 private Date date;
-	
-	 public Review() {
-}
-	 
-		public Review(Long patientid, long doctorid, String description, String office, java.util.Date date) {
-			super();
-			patientid = patientid;
-			doctorid = doctorid;
-			description = description;
-			office = office;
-			date = date;
-		
-		}
-		public Long getPatientID() {
-			return patientid;
-		}
-		
-		
+public class Review implements Serializable{
 
-		public void setPatientID(Long patientID) {
-			patientid = patientID;
-		}
-		public long getDoctorID() {
-			return doctorid;
-		}
-		public void setDoctorID(Long doctorID) {
-			doctorid = doctorID;
-		}
-		public String getDescription() {
-			return description;
-		}
-		public void setDescription(String description) {
-			description = description;
-		}
-		public String getOffice() {
-			return office;
-		}
-		public void setOffice(String office) {
-			office = office;
-		}
-		public Date getDate() {
-			return date;
-		}
-		public void setDate(Date date) {
-			date = date;
-		}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Basic
+    @DateTimeFormat
+    private Date date;
+    private String description;
+    private String office;
 
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + ((date == null) ? 0 : date.hashCode());
-			result = prime * result
-					+ ((description == null) ? 0 : description.hashCode());
-			result = prime * result + (int) (doctorid ^ (doctorid >>> 32));
-			result = prime * result
-					+ ((office == null) ? 0 : office.hashCode());
-			result = prime * result + (int) (patientid ^ (patientid >>> 32));
-			
-			return result;
-		}
+    @ManyToOne
+    @JoinColumn(name = "patientid")
+    private Patient patient;
 
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Review other = (Review) obj;
-			if (date == null) {
-				if (other.date != null)
-					return false;
-			} else if (!date.equals(other.date))
-				return false;
-			if (description == null) {
-				if (other.description != null)
-					return false;
-			} else if (!description.equals(other.description))
-				return false;
-			if (doctorid != other.doctorid)
-				return false;
-			if (office == null) {
-				if (other.office != null)
-					return false;
-			} else if (!office.equals(other.office))
-				return false;
-			if (patientid != other.patientid)
-				return false;
-			
-			return true;
-		}
+    @ManyToOne
+    @JoinColumn(name = "doctorid")
+    private Doctor doctor;
 
-		
+    @OneToMany(mappedBy = "review")
+    private Set<Report> reports;
 
-	
+    public Review() {
+    }
 
-	
-	
-		
-		
-		
-	 
-	 
-	 
+    public Review(Long id, Date date, String description, String office, Patient patient, Doctor doctor, Set<Report> reports) {
+        this.id = id;
+        this.date = date;
+        this.description = description;
+        this.office = office;
+        this.patient = patient;
+        this.doctor = doctor;
+        this.reports = reports;
+    }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the date
+     */
+    public Date getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the office
+     */
+    public String getOffice() {
+        return office;
+    }
+
+    /**
+     * @param office the office to set
+     */
+    public void setOffice(String office) {
+        this.office = office;
+    }
+
+    /**
+     * @return the patient
+     */
+    public Patient getPatient() {
+        return patient;
+    }
+
+    /**
+     * @param patient the patient to set
+     */
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    /**
+     * @return the doctor
+     */
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    /**
+     * @param doctor the doctor to set
+     */
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    /**
+     * @return the reports
+     */
+    public Set<Report> getReports() {
+        return reports;
+    }
+
+    /**
+     * @param reports the reports to set
+     */
+    public void setReports(Set<Report> reports) {
+        this.reports = reports;
+    }
+
+   
+
 }

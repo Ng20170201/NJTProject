@@ -2,7 +2,6 @@ package com.NJTProject.rest.webservices.restwebservices.Review;
 
 import java.net.URI;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,7 +59,7 @@ public class ReviewsResource {
 		Review createdReview=ReviewService.save(review);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().
-			 path("/{doctorId}/{patientId}").buildAndExpand(createdReview.getDoctorID(),createdReview.getPatientID()).toUri();
+			 path("/{doctorId}/{patientId}").buildAndExpand(createdReview.getDoctor().getId(),createdReview.getPatient().getId()).toUri();
 	
 		
 		

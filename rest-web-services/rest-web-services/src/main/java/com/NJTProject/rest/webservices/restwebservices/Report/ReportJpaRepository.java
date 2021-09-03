@@ -1,13 +1,12 @@
 package com.NJTProject.rest.webservices.restwebservices.Report;
 
 import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface ReportJpaRepository extends JpaRepository<Report, Long>{
+public interface ReportJpaRepository extends JpaRepositoryImplementation<Report, Long>{
 	
 	
 

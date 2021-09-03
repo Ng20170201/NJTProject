@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {REPORT_JPA_API_URL, API_URL } from 'src/app/app.constants';
-import { Review } from 'src/app/patient-reviews/patinet-reviews.component';
+import { Review, ReviewDB } from 'src/app/patient-reviews/patinet-reviews.component';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +13,8 @@ export class ReviewsDataService {
 
 
   retrieveAllReviews(username:String){
-    let basicAuthHeaderString = this.cretaeBasicAuthenticationHttpHeader();
-    let headers = new HttpHeaders({
-      Authorization:  basicAuthHeaderString
-    }
-
-    )
-    return this.http.get<Review[]>(`${REPORT_JPA_API_URL}/users/${username}/reviews`,
-    {headers : headers});
+  
+    return this.http.get<ReviewDB[]>(`${REPORT_JPA_API_URL}/users/${username}/reviews`);
 
   }
   
@@ -34,7 +28,7 @@ export class ReviewsDataService {
   }
 
   createReview(review:Review){
-    return this.http.post(`${API_URL}/users/admin/reviews/1/${review.patientID}`,review);
+    return this.http.post(`${API_URL}/users/admin/reviews/1/${review.patientId}`,review);
   }
 
   updateReview(id1:number,id2:number,review:Review){
