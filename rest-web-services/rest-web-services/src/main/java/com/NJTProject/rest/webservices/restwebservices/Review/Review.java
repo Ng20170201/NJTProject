@@ -13,80 +13,70 @@ import com.NJTProject.rest.webservices.restwebservices.Report.Report;
 public class Review {
 	@Id
 	@GeneratedValue
-	 private Long PatientID;
-	 private Long DoctorID;
-	 private String Description;
-	 private String Office;
-	 private Date Date;
-	 private long periodID;
-	 
+	 private Long patientid;
+	 private Long doctorid;
+	 private String description;
+	 private String office;
+	 private Date date;
+	
 	 public Review() {
 }
 	 
-		public Review(Long patientID, long doctorID, String description, String office, java.util.Date date, long PeriodID) {
+		public Review(Long patientid, long doctorid, String description, String office, java.util.Date date) {
 			super();
-			PatientID = patientID;
-			DoctorID = doctorID;
-			Description = description;
-			Office = office;
-			Date = date;
-			periodID = PeriodID;
+			patientid = patientid;
+			doctorid = doctorid;
+			description = description;
+			office = office;
+			date = date;
+		
 		}
 		public Long getPatientID() {
-			return PatientID;
+			return patientid;
 		}
 		
 		
-		
-		
-		public Long getPeriodID() {
-			return periodID;
-		}
-
-		public void setPeriodID(Long periodID) {
-			this.periodID = periodID;
-		}
 
 		public void setPatientID(Long patientID) {
-			PatientID = patientID;
+			patientid = patientID;
 		}
 		public long getDoctorID() {
-			return DoctorID;
+			return doctorid;
 		}
 		public void setDoctorID(Long doctorID) {
-			DoctorID = doctorID;
+			doctorid = doctorID;
 		}
 		public String getDescription() {
-			return Description;
+			return description;
 		}
 		public void setDescription(String description) {
-			Description = description;
+			description = description;
 		}
 		public String getOffice() {
-			return Office;
+			return office;
 		}
 		public void setOffice(String office) {
-			Office = office;
+			office = office;
 		}
 		public Date getDate() {
-			return Date;
+			return date;
 		}
 		public void setDate(Date date) {
-			Date = date;
+			date = date;
 		}
 
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + ((Date == null) ? 0 : Date.hashCode());
+			result = prime * result + ((date == null) ? 0 : date.hashCode());
 			result = prime * result
-					+ ((Description == null) ? 0 : Description.hashCode());
-			result = prime * result + (int) (DoctorID ^ (DoctorID >>> 32));
+					+ ((description == null) ? 0 : description.hashCode());
+			result = prime * result + (int) (doctorid ^ (doctorid >>> 32));
 			result = prime * result
-					+ ((Office == null) ? 0 : Office.hashCode());
-			result = prime * result + (int) (PatientID ^ (PatientID >>> 32));
-			result = prime * result + (int) (periodID ^ (periodID >>> 32));
+					+ ((office == null) ? 0 : office.hashCode());
+			result = prime * result + (int) (patientid ^ (patientid >>> 32));
+			
 			return result;
 		}
 
@@ -99,27 +89,26 @@ public class Review {
 			if (getClass() != obj.getClass())
 				return false;
 			Review other = (Review) obj;
-			if (Date == null) {
-				if (other.Date != null)
+			if (date == null) {
+				if (other.date != null)
 					return false;
-			} else if (!Date.equals(other.Date))
+			} else if (!date.equals(other.date))
 				return false;
-			if (Description == null) {
-				if (other.Description != null)
+			if (description == null) {
+				if (other.description != null)
 					return false;
-			} else if (!Description.equals(other.Description))
+			} else if (!description.equals(other.description))
 				return false;
-			if (DoctorID != other.DoctorID)
+			if (doctorid != other.doctorid)
 				return false;
-			if (Office == null) {
-				if (other.Office != null)
+			if (office == null) {
+				if (other.office != null)
 					return false;
-			} else if (!Office.equals(other.Office))
+			} else if (!office.equals(other.office))
 				return false;
-			if (PatientID != other.PatientID)
+			if (patientid != other.patientid)
 				return false;
-			if (periodID != other.periodID)
-				return false;
+			
 			return true;
 		}
 

@@ -16,9 +16,9 @@ public class ReviewHardcodeService {
 	private static long jedan=1;
 	
 	static {
-		reviews.add(new Review(++idCounter,1,"Description1","Office1",new Date(),5));
-		reviews.add(new Review(++idCounter,1,"Description2","Office2",new Date(),6));
-		reviews.add(new Review(++idCounter,1,"Description3","Office3",new Date(),7));
+//		reviews.add(new Review(++idCounter,1,"Description1","Office1",new Date(),5));
+//		reviews.add(new Review(++idCounter,1,"Description2","Office2",new Date(),6));
+//		reviews.add(new Review(++idCounter,1,"Description3","Office3",new Date(),7));
 	}
 	public List<Review> findAll(){
 		return reviews;

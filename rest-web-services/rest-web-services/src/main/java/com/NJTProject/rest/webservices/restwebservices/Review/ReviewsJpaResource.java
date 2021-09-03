@@ -27,12 +27,13 @@ import com.NJTProject.rest.webservices.restwebservices.Report.ReportJpaRepositor
 public class ReviewsJpaResource {
 	@Autowired
 	private ReviewHardcodeService ReviewService;
-	
+	private ReviewJpaRepository reviewJpaRepository;
 
-	@GetMapping("/jpa/users/{username}/reviews")
+	@GetMapping("/jpa/users/{username}/reviews/")
 	public List<Review> getAllReviews(@PathVariable String username){
-		return ReviewService.findAll();
-		
+	//	return ReviewService.findAll();
+		System.out.println(reviewJpaRepository.findAll());
+		return reviewJpaRepository.findAll();
 	}
 	
 	

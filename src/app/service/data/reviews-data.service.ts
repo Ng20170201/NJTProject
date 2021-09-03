@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { API_URL } from 'src/app/app.constants';
+import {REPORT_JPA_API_URL, API_URL } from 'src/app/app.constants';
 import { Review } from 'src/app/patient-reviews/patinet-reviews.component';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class ReviewsDataService {
     }
 
     )
-    return this.http.get<Review[]>(`${API_URL}/users/${username}/reviews`,
+    return this.http.get<Review[]>(`${REPORT_JPA_API_URL}/users/${username}/reviews`,
     {headers : headers});
 
   }

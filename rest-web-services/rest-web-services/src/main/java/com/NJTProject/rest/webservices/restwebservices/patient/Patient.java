@@ -29,7 +29,7 @@ public class Patient {
     private String UCIN;
     private String name;
     private String surname;
-    private Date birthDate;
+    private Date birthdate;
     private String email;
     private String telephone;
     private String password;
@@ -39,12 +39,12 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(Long id, String UCIN, String name, String surname, Date birthDate, String email, String telephone, String password) {
+    public Patient(Long id, String UCIN, String name, String surname, Date birthdate, String email, String telephone, String password) {
         this.id = id;
         this.UCIN = UCIN;
         this.name = name;
         this.surname = surname;
-        this.birthDate = birthDate;
+        this.birthdate = birthdate;
         this.email = email;
         this.telephone = telephone;
         this.password = password;
@@ -113,14 +113,14 @@ public class Patient {
      * @return the birthDate
      */
     public Date getBirthDate() {
-        return birthDate;
+        return birthdate;
     }
 
     /**
      * @param birthDate the birthDate to set
      */
     public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+        this.birthdate = birthDate;
     }
 
     /**
@@ -171,7 +171,7 @@ public class Patient {
     @Override
 	public String toString() {
 		return "Patient [id=" + id + ", UCIN=" + UCIN + ", name=" + name + ", surname=" + surname + ", birthDate="
-				+ birthDate + ", email=" + email + ", telephone=" + telephone + ", password=" + password + ", doctor="
+				+ birthdate + ", email=" + email + ", telephone=" + telephone + ", password=" + password + ", doctor="
 				+ "]";
 	}
 
