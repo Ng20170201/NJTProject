@@ -90,6 +90,7 @@ export class LoginComponent implements OnInit {
             data =>{
               console.log(data)
               this.router.navigate(['welcome', this.username])
+              console.log(this.username);
                this.invalidLogin=false
 
             },
@@ -101,6 +102,7 @@ export class LoginComponent implements OnInit {
             
           )
         this.router.navigate(['welcome', this.username])
+        console.log(this.username);
         this.invalidLogin=false
       //}
            

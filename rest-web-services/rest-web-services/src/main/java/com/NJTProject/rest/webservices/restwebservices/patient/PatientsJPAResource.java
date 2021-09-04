@@ -37,17 +37,7 @@ public class PatientsJPAResource {
 
     @GetMapping("/jpa/users/{username}/patients")
     public List<Patient> getAllPatients(@PathVariable String username){
-        //return patientService.findAll();
         List<Patient> patients = patientsJpaRepository.findAll();
-     /*   if (!patients.isEmpty()) {
-            for(Patient p : patients){
-                try {
-                    jwtInMemoryUserDetailsService.addUserDetails(p);
-                } catch (Exception ex) {
-                    Logger.getLogger(PatientsJPAResource.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }*/
         return patients;
 
     }
