@@ -13,7 +13,7 @@ import { ReviewsDataService } from '../service/data/reviews-data.service';
 })
 export class ReviewComponent implements OnInit {
   reviews: Review[]=[];
-  message!: string;
+  message: string="";
 
 
   constructor(

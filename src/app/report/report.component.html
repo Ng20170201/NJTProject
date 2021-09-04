@@ -1,12 +1,16 @@
-<div><h1>
-    <button style="float: right;vertical-align:top;" class="btn btn-success " (click)="addReport()">Add report</button>
-    Reports
-</h1></div>
+<h1 class="title">Reports</h1>
+<div style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
+    
+    <div>
+        <button class="btn btn-success" (click)="addReport()">Add report</button>
+
+    </div>
+</div>
 
 <div class="alert alert-success" *ngIf='message!=""'>{{message}}</div>
 <div class="container">
 <table class="table">
-    <caption>List reports</caption>
+    
     <thead>
         <tr>
          

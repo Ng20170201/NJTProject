@@ -1,7 +1,11 @@
-<div><h1>
-    <button style="float: right;vertical-align:top;" class="btn btn-success " (click)="addReview()">Add review</button>
-    Reviews
-</h1></div>
+<h1 class="title">Reviews</h1>
+<div style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
+    
+    <div>
+        <button class="btn btn-success" (click)="addReview()">Add review</button>
+
+    </div>
+</div>
 
 <div class="alert alert-success" *ngIf='message!=""'>{{message}}</div>
 <div class="container">
@@ -27,7 +31,7 @@
             <td>{{review.doctorId}}</td>
             <td>{{review.office}}</td>
             <td>{{review.description}}</td>
-            <td>{{review.date}}</td>
+            <td>{{review.date | date:'MM/dd/yyyy'}}</td>
             <td>{{review.periodID}}</td>
             <td><button (click)="updateReview(review.doctorId,review.patientId)" class="btn btn-success">Update</button></td>
             <td><button (click)="deleteReview(review.doctorId,review.doctorId)" class="btn btn-warning">Delete</button></td>
