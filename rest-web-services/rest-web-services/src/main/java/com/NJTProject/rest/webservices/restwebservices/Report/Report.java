@@ -19,13 +19,14 @@ public class Report {
     private String diagnosis;
     private String therapy;
     private String note;
+  
 
     @ManyToOne
     @JoinColumns(
             {
-                @JoinColumn(name = "patientid", referencedColumnName = "patientId")
+                @JoinColumn(name = "patientid", referencedColumnName = "patientid")
                 ,
-                 @JoinColumn(name = "doctorId", referencedColumnName = "doctorId")
+                 @JoinColumn(name = "doctorid", referencedColumnName = "doctorid")
                 ,
                  @JoinColumn(name = "date", referencedColumnName = "date")
             }

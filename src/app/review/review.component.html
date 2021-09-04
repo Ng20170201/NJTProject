@@ -31,8 +31,12 @@
             <td>{{review.doctorId}}</td>
             <td>{{review.office}}</td>
             <td>{{review.description}}</td>
+<<<<<<< HEAD
             <td>{{review.date | date:'MM/dd/yyyy'}}</td>
             <td>{{review.periodID}}</td>
+=======
+            <td>{{review.date}}</td>
+>>>>>>> 31fc419d88b17bea484995764503ce23ba26bb58
             <td><button (click)="updateReview(review.doctorId,review.patientId)" class="btn btn-success">Update</button></td>
             <td><button (click)="deleteReview(review.doctorId,review.doctorId)" class="btn btn-warning">Delete</button></td>
            
