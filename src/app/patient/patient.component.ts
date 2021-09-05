@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SimpleOuterSubscriber } from 'rxjs/internal/innerSubscribe';
 import { Patient } from '../list-patient/list-patient.component';
 import { PatientDataService } from '../service/data/patient-data.service';
 
@@ -29,7 +30,11 @@ export class PatientComponent implements OnInit {
     if ( this.id!=-1) {
 
       this.patientService.getPatient('nikola', this.id).subscribe(
-        data => this.patient = data
+        
+        data=>{
+          this.patient = data;
+          console.log("Patient ngOnInit()"+this.showPatient(this.patient));
+        }
       )
     }
 
@@ -39,19 +44,29 @@ export class PatientComponent implements OnInit {
       //create todo
       this.patientService.createPatient('admin', this.patient).subscribe(
         response => {
-          console.log(response);
+          console.log("Save patient create: "+response);
           this.router.navigateByUrl("/list-patient");
-        }
-      )
+        },error => {
+          console.log('FAIL to create Patient!');
+        },
+        () => {
+          console.log('POST Patient - now completed.');
+        });
+      
     } else {
       //update
       this.patientService.updatePatient('admin', this.id, this.patient).subscribe(
         response => {
-          console.log("Response: \n"+response);
+          console.log("Save patient update: "+response);
+
           this.router.navigateByUrl("/list-patient");
         }
       )
     }
+  }
+
+  showPatient(patient:Patient){
+    console.log(patient.id+" "+patient.name+" "+patient.surname);
   }
 
 

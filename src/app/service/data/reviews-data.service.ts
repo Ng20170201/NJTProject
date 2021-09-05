@@ -22,18 +22,43 @@ export class ReviewsDataService {
     return this.http.delete(`${API_URL}/users/admin/reviews/${doctorID}/${patientID}`);
 
   }
+  /*
   retrieveReviews(patientID:number): Observable<Review> {
     return this.http.get<Review>(`${API_URL}/users/admin/reviews/1/${patientID}`);
 
+  }*/
+  getReviewById(id:number,username:string): Observable<ReviewDB> {
+    return this.http.get<ReviewDB>(`${REPORT_JPA_API_URL}/users/admin/${username}/${id}`);
+
   }
 
-  createReview(review:Review){
-    return this.http.post(`${API_URL}/users/admin/reviews/1/${review.patientId}`,review);
+
+
+  createReview(username:string,review:Review){
+    return this.http.post(`${REPORT_JPA_API_URL}/users/${username}/reviews/123/${review.patientId}`,review);
   }
 
-  updateReview(id1:number,id2:number,review:Review){
-    return this.http.put(`${API_URL}/users/admin/reviews/${id1}/${id2}`,review);
+  updateReview(username:string,id2:number,review:Review){
+    return this.http.put(`${REPORT_JPA_API_URL}/users/${username}/reviews/${id2}`,review);
   }
+
+  
+  createReviewDB(username:string,reviewDb:ReviewDB):Observable<any> {
+   return this.http.post(`${REPORT_JPA_API_URL}/users/${username}/reviews`,reviewDb);
+  }
+
+/*createReviewDB(username:string,reviewDb:ReviewDB):Promise<ReviewDB>{
+  return this.http.post(`${REPORT_JPA_API_URL}/users/${username}/reviews`,JSON.stringify(reviewDb))
+  .toPromise()
+  .then(response => response as ReviewDB)
+  .catch(
+    
+  )};*/
+ 
+  updateReviewDB(username:string,id2:number,reviewDb:ReviewDB){
+    return this.http.put(`${REPORT_JPA_API_URL}/users/${username}/reviews/${id2}`,reviewDb);
+  }
+
 
 cretaeBasicAuthenticationHttpHeader(){
   let username='admin'

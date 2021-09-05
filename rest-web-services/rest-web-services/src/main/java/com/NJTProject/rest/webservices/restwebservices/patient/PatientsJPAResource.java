@@ -64,7 +64,7 @@ public class PatientsJPAResource {
 
     @PostMapping("/jpa/users/{username}/patients")
     public ResponseEntity<Void> createPatient(@PathVariable String username, @RequestBody Patient patient) {
-        System.out.println("Procitan pacijent: " + patient);
+        System.out.println("DODAT pacijent: " + patient);
         Patient patentAdded = patientsJpaRepository.save(patient);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(patentAdded.getId()).toUri();
         return ResponseEntity.created(uri).build();

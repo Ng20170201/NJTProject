@@ -1,37 +1,71 @@
-<h1>Review </h1>
+<body>
+    <div class="container">
+        <h1 class="title">New review info</h1>
+        <div class="alert alert-warning" *ngIf="reviewForm.dirty && reviewForm.invalid">Please fill in required form
+            fields</div>
+        <form class="form-group" (ngSubmit)="!reviewForm.invalid && SaveReview()" #reviewForm="ngForm">
+            <tr>
+                <td>
+                    <label>Date</label>
+                    <input [ngModel]="review.date | date:'yyyy-MM-dd'" (ngModel)="review.date" class="form-control"
+                        type="date" id="date" name="password" size="40" name="birthDate" required="required"
+                        [disabled]="isDisabled">
+                </td>
+              
 
-<div class="container">
-<form (ngSubmit)= " !reportForm.invalid && SaveReview()" #reportForm="ngForm">
+            </tr>
 
-         <!-- <fieldset class="form-group">
-            <label>Patient</label>
-    <input type="text"  class="form-control" [(ngModel)]="review.patientID"  name="Patient" required="required" minlength="5">
-    </fieldset> -->
+            <tr style="display: flex; justify-content: flex-start; margin-left: 100px;">
+
+              
+               <td></td>
+
+            </tr>
+            <tr>
+                <td>
+                    <label>Office</label>
+                    <input [(ngModel)]="review.office" class="form-control" size="40" type="text" id="office"
+                        name="office" required="required">
+                </td>
+                <td>
+                    <label>Patient</label>
+                    <select [ngModel]="selectedPatient" (ngModelChange)="onChange($event)" name="selectedPatient">
+                        <option [ngValue]="p" *ngFor="let p of patients">{{p.name}}{{p.surname}}</option>
+                    </select>
+                   </td>
+
+
+            </tr>
+
+            <tr>
+               
+                   
+                           <label>Description </label>
+                    <textarea rows="7"  [(ngModel)]="review.description" class="form-control" size="40" type="text" id="description"
+                        name="description" required="required" minlength="5"></textarea>
+
+                    
+                     
+                
+            </tr>
 
 
 
-<fieldset class="form-group">
-    <label>Ofiice</label>
-    <input type="text"  class="form-control" [(ngModel)]="review.office"  name="Office" required="required">
-</fieldset>
+            <tr style="display: flex; justify-content: flex-end;">
 
-<fieldset class="form-group">
-    <label>Description</label>
-    <input type="text" class="form-control" [(ngModel)]="review.description"  name="Description" required="required">
-</fieldset>
+                <td>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </td>
+            </tr>
 
-<!-- <fieldset class="form-group">
-    <label>Date</label>
-    <input [ngModel]="review.date | date:'yyyy-MM-dd'" (ngModel)="review.date"
-    class="form-control" type="date" id="date" name="date" size="40" name="birthday"
-    required="required">
-</fieldset>
+        </form>
 
-<fieldset class="form-group">
-    <label>Period</label>
-    <input type="text" class="form-control" [(ngModel)]="review.periodID"  name="Period" required="required">
-</fieldset> -->
 
-<button type="submit" class="btn btn-success ">Save</button>
-</form>
-</div>
+
+    </div>
+
+
+
+
+
+</body>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Review } from '../patient-reviews/patinet-reviews.component';
+import { Review, ReviewDB } from '../patient-reviews/patinet-reviews.component';
 import { ReviewsDataService } from '../service/data/reviews-data.service';
 // import { Review } from '../patient-reviews/patient-reviews.component';
 
@@ -14,7 +14,7 @@ import { ReviewsDataService } from '../service/data/reviews-data.service';
 export class ReviewComponent implements OnInit {
   reviews: Review[]=[];
   message: string='';
-
+  reviewsDb:ReviewDB[]=[];
 
   constructor(
     private reviewService: ReviewsDataService,
@@ -31,12 +31,13 @@ export class ReviewComponent implements OnInit {
       response => {
        // this.reviews = response;
       //  console.log(this.reviews);
-      
-        response.forEach(element => {
-          this.reviews.push( new Review(element.patient.id,element.doctor.id,element.office,element.description,element.date,null));
+        this.reviewsDb=response;
+        console.log("OVDEEEEE")
+        this.reviewsDb.forEach(element => {
+          console.log("OVDE "+ element)
+          this.reviews.push( new Review(element.patient.id,element.doctor.id,element.office,element.description,element.date));
         });
-        console.log(this.reviews);
-        
+      
       }
     )
   }

@@ -30,6 +30,7 @@ public class Review implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "patientid")
+ 
     private Patient patient;
 
     @ManyToOne
@@ -149,6 +150,9 @@ public class Review implements Serializable{
     public void setReports(Set<Report> reports) {
         this.reports = reports;
     }
+
+   
+
 
    
 

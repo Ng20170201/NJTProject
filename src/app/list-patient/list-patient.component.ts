@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReviewDB } from '../patient-reviews/patinet-reviews.component';
 import { PatientDataService } from '../service/data/patient-data.service';
 
 export class Patient {
@@ -17,6 +18,22 @@ export class Patient {
 
   }
 }
+export class PatientDB {
+  constructor(
+    public id: number,
+    public ucin: string,
+    public name: string,
+    public surname: string,
+    public birthDate: Date,
+    public email: string,
+    public telephone: string,
+    public password: string,
+    public reviews:ReviewDB[]|null
+
+  ) {
+
+  }
+}
 
 
 @Component({
@@ -27,7 +44,7 @@ export class Patient {
 export class ListPatientComponent implements OnInit {
   patients: Patient[] = [];
   message!: string;
-
+  patientsDB:PatientDB[]=[];
 
   constructor(
     private patientService: PatientDataService,
@@ -42,7 +59,11 @@ export class ListPatientComponent implements OnInit {
     this.patientService.retrieveAllPatients('admin').subscribe(
       response => {
         console.log(response);
-        this.patients = response;
+       // this.patients = response;
+       this.patientsDB=response;
+        this.patientsDB.forEach(element => {
+          this.patients.push(new Patient(element.id,element.ucin,element.name,element.surname,element.birthDate,element.email,element.telephone,element.password));
+        });
       }
     )
   }

@@ -4,6 +4,7 @@ import { ModalDismissReasons, NgbModal, NgbModule } from '@ng-bootstrap/ng-boots
 import { Router } from '@angular/router';
 import { PatientDataService } from '../service/data/patient-data.service';
 import { ReviewsDataService } from '../service/data/reviews-data.service';
+import { PatientDB } from '../list-patient/list-patient.component';
 
 
 export class Review {
@@ -12,8 +13,7 @@ export class Review {
     public doctorId: number,
     public office: string,
     public description: string,
-    public date: Date,
-    public periodID: number | null
+    public date: Date
 
   ) { }
 }
@@ -26,34 +26,37 @@ export class DoctorDB {
     public workingshift: string,
     public username: string,
     public password: string,
-
-
-  ) { }
-}
-export class PatientDB {
-  constructor(
-    public id: number,
-    public UCIN: string,
-    public name: string,
-    public surname: string,
-    public birthdate: Date,
-    public email: string,
-    public telephone: string,
-    public password: string
+    public department:DepartmentDB|null
 
   ) { }
 }
 export class ReviewDB {
   constructor(
+    public id:number,
     public patient: PatientDB,
     public doctor: DoctorDB,
     public office: string,
     public description: string,
     public date: Date,
-    public periodID: number | null
-
+   public reports:ReportDB[]|null
   ) { }
 }
+export class ReportDB {
+  constructor(
+    public id:number,
+    public note: string,
+    public diagnosis: string,
+    public therapy: string,
+    public review:ReviewDB|null
+  ) { }
+}
+export class DepartmentDB{
+  constructor(
+    public id:number,
+    public name:string
+  ){}
+}
+
 
 @Component({
   selector: 'app-patinet-reviews',

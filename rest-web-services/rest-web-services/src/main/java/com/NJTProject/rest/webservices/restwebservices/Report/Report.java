@@ -1,6 +1,7 @@
 package com.NJTProject.rest.webservices.restwebservices.Report;
 
 import com.NJTProject.rest.webservices.restwebservices.Review.Review;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +10,7 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 
 @Entity
-
+   @Embeddable
 public class Report {
 
     @Id
@@ -82,4 +83,7 @@ public class Report {
         return "Report [id=" + id + ", diagnosis=" + diagnosis + ", therapy=" + therapy + ", note=" + note + "]";
     }
 
+
+
+   
 }
