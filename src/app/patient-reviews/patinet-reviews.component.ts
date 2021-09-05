@@ -9,6 +9,7 @@ import { PatientDB } from '../list-patient/list-patient.component';
 
 export class Review {
   constructor(
+    public id:number,
     public patientId: number,
     public doctorId: number,
     public office: string,

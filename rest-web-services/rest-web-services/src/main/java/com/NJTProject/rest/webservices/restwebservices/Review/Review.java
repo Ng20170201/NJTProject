@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,16 +29,15 @@ public class Review implements Serializable{
     private String description;
     private String office;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "patientid")
- 
     private Patient patient;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "doctorid")
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "review")
+    @OneToMany(mappedBy = "review",cascade = CascadeType.ALL)
     private Set<Report> reports;
 
     public Review() {

@@ -21,7 +21,7 @@ export class OneReviewComponent implements OnInit {
   dummyPatient:PatientDB=new PatientDB(0,"","","",new Date(),"","","",null);
  
 
-  review: Review = new Review(0, 1, '', '', new Date())
+  review: Review = new Review(this.id2,0, 1, '', '', new Date())
   reviewDb:ReviewDB= new ReviewDB(this.id2,this.dummyPatient,this.dummyDoctor,"","",new Date(),null);
 
   //PACIJENTI
@@ -46,7 +46,7 @@ export class OneReviewComponent implements OnInit {
 
     this.id2 = this.route.snapshot.params['id2'];
 
-    this.review = new Review(this.id2, 1, '', '', new Date())
+    this.review = new Review(this.id2,this.id2, 1, '', '', new Date())
      this.reviewDb=new ReviewDB(this.id2,this.dummyPatient,this.dummyDoctor,"","",new Date(),null);
 
     if (this.id2 != -1) {
@@ -54,7 +54,7 @@ export class OneReviewComponent implements OnInit {
       this.reviewService.getReviewById(this.id2,'admin').subscribe(data => {
         console.log("Get review by id -> office: "+data.office);
         this.reviewDb = data;
-        this.review=new Review(this.reviewDb.patient.id,this.reviewDb.doctor.id,this.reviewDb.office,this.reviewDb.description,this.reviewDb.date);
+        this.review=new Review(this.id2,this.reviewDb.patient.id,this.reviewDb.doctor.id,this.reviewDb.office,this.reviewDb.description,this.reviewDb.date);
       })
     }
   }
@@ -62,6 +62,7 @@ export class OneReviewComponent implements OnInit {
   
     SaveReview() {
       console.log("POZVANA SAVE REVIEW METODA");
+      
     if (this.id2 ==-1 ) {
       //create todo
       console.log("create review office: "+this.reviewDb.office);

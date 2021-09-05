@@ -10,6 +10,7 @@ import com.NJTProject.rest.webservices.restwebservices.Review.Review;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -34,7 +35,7 @@ public class Doctor {
     @JoinColumn(name="departmentid")
     private Department department;
     
-    @OneToMany(mappedBy="doctor",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="doctor",fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     Set<Review>reviews;
 
     public Doctor() {

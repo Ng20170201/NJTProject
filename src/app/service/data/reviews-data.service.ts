@@ -18,15 +18,11 @@ export class ReviewsDataService {
 
   }
   
-  deleteReview(doctorID:number,patientID:number){
-    return this.http.delete(`${API_URL}/users/admin/reviews/${doctorID}/${patientID}`);
+  deleteReview(id:number){
+    return this.http.delete(`${API_URL}/users/admin/reviews/${id}`);
 
   }
-  /*
-  retrieveReviews(patientID:number): Observable<Review> {
-    return this.http.get<Review>(`${API_URL}/users/admin/reviews/1/${patientID}`);
-
-  }*/
+ 
   getReviewById(id:number,username:string): Observable<ReviewDB> {
     return this.http.get<ReviewDB>(`${REPORT_JPA_API_URL}/users/admin/${username}/${id}`);
 

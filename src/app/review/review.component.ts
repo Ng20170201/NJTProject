@@ -29,13 +29,11 @@ export class ReviewComponent implements OnInit {
   refreshReviews() {
     this.reviewService.retrieveAllReviews('admin').subscribe(
       response => {
-       // this.reviews = response;
-      //  console.log(this.reviews);
         this.reviewsDb=response;
         console.log("OVDEEEEE")
         this.reviewsDb.forEach(element => {
           console.log("OVDE "+ element)
-          this.reviews.push( new Review(element.patient.id,element.doctor.id,element.office,element.description,element.date));
+          this.reviews.push( new Review(element.id,element.patient.id,element.doctor.id,element.office,element.description,element.date));
         });
       
       }
@@ -45,7 +43,7 @@ export class ReviewComponent implements OnInit {
 
     console.log(`delete report ${idD} AND ${idP}`)
 
-    this.reviewService.deleteReview(idD, idP).subscribe(
+    this.reviewService.deleteReview(idD).subscribe(
       response => {
         console.log(response);
 

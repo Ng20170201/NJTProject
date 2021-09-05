@@ -7,8 +7,8 @@
             <tr>
                 <td>
                     <label>Date</label>
-                    <input [ngModel]="review.date | date:'yyyy-MM-dd'" (ngModel)="review.date" class="form-control"
-                        type="date" id="date" name="password" size="40" name="birthDate" required="required"
+                    <input [ngModel]="reviewDb.date | date:'yyyy-MM-dd'" (ngModel)="reviewDb.date" class="form-control"
+                        type="date" id="date" name="date" size="40" name="date" required="required"
                         [disabled]="isDisabled">
                 </td>
               
@@ -24,7 +24,7 @@
             <tr>
                 <td>
                     <label>Office</label>
-                    <input [(ngModel)]="review.office" class="form-control" size="40" type="text" id="office"
+                    <input [(ngModel)]="reviewDb.office" class="form-control" size="40" type="text" id="office"
                         name="office" required="required">
                 </td>
                 <td>
@@ -41,7 +41,7 @@
                
                    
                            <label>Description </label>
-                    <textarea rows="7"  [(ngModel)]="review.description" class="form-control" size="40" type="text" id="description"
+                    <textarea rows="7"  [(ngModel)]="reviewDb.description" class="form-control" size="40" type="text" id="description"
                         name="description" required="required" minlength="5"></textarea>
 
                     

@@ -5,10 +5,12 @@
  */
 package com.NJTProject.rest.webservices.restwebservices.dto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Andjela
  */
-public class Dto {
+public class Dto implements Serializable{
     
 }
