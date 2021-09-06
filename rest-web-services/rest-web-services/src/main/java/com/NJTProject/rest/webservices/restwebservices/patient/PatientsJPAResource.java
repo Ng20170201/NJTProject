@@ -50,7 +50,6 @@ public class PatientsJPAResource {
 
     @DeleteMapping("/jpa/users/{username}/patients/{id}")
     public ResponseEntity<Void> deletePatient(@PathVariable String username, @PathVariable long id) {
-
         patientsJpaRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }

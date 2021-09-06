@@ -27,6 +27,7 @@ export class ReviewComponent implements OnInit {
   }
 
   refreshReviews() {
+    this.reviewsDb=[];
     this.reviewService.retrieveAllReviews('admin').subscribe(
       response => {
         this.reviewsDb=response;
@@ -39,28 +40,29 @@ export class ReviewComponent implements OnInit {
       }
     )
   }
-  deleteReview(idD: number, idP: number) {
+  deleteReview(id: number,patientid:number,doctorid:number) {
 
-    console.log(`delete report ${idD} AND ${idP}`)
+    //console.log(`delete report ${idD} AND ${idP}`)
 
-    this.reviewService.deleteReview(idD).subscribe(
+    this.reviewService.deleteReviewDB(id,patientid,doctorid).subscribe(
       response => {
         console.log(response);
 
-        this.message = `Delete of Report ${idD} and ${idP}... Delete Successfull`
+        this.message = `You have successfully deleted chosen review!`
         this.refreshReviews();
       }
 
 
     )
   }
-  updateReview(idD: number, idP: number) {
-    this.router.navigate(['reviews', 1, `${idP}`])
+  updateReview(id: number) {
+    
+    this.router.navigate(['reviews',1, id]);
 
   }
   addReview() {
     this.router.navigate(['reviews', 1, -1]) //zakucan id doktora na 1
-
+    //this.router.navigate(['reviews',-1]);
   }
 
 

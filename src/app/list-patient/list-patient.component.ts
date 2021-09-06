@@ -56,6 +56,7 @@ export class ListPatientComponent implements OnInit {
     this.refreshPatients();
   }
   refreshPatients() {
+    this.patients=[];
     this.patientService.retrieveAllPatients('admin').subscribe(
       response => {
         console.log(response);

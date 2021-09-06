@@ -39,6 +39,8 @@ public class Review implements Serializable{
 
     @OneToMany(mappedBy = "review",cascade = CascadeType.ALL)
     private Set<Report> reports;
+    
+   
 
     public Review() {
     }

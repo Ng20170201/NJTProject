@@ -28,6 +28,11 @@ export class OneReviewComponent implements OnInit {
   patients:Patient[]=[];
   patientsDB:PatientDB[]=[];
   selectedPatient:Patient=new Patient(0,"NA","NA","NA",new Date(),"NA","NA","NA");
+
+  //PACIJENT POLJE
+  patient:Patient=new Patient(0,"NA","NA","NA",new Date(),"NA","NA","NA");
+
+
   constructor(private reviewService: ReviewsDataService,
     private route: ActivatedRoute, private router: Router,private patientService:PatientDataService) { }
 
@@ -50,11 +55,15 @@ export class OneReviewComponent implements OnInit {
      this.reviewDb=new ReviewDB(this.id2,this.dummyPatient,this.dummyDoctor,"","",new Date(),null);
 
     if (this.id2 != -1) {
-
+      this.isDisabled=true;
       this.reviewService.getReviewById(this.id2,'admin').subscribe(data => {
         console.log("Get review by id -> office: "+data.office);
         this.reviewDb = data;
+        this.patient=this.reviewDb.patient;
         this.review=new Review(this.id2,this.reviewDb.patient.id,this.reviewDb.doctor.id,this.reviewDb.office,this.reviewDb.description,this.reviewDb.date);
+        
+      
+     
       })
     }
   }

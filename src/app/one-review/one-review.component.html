@@ -9,8 +9,13 @@
                     <label>Date</label>
                     <input [ngModel]="reviewDb.date | date:'yyyy-MM-dd'" (ngModel)="reviewDb.date" class="form-control"
                         type="date" id="date" name="date" size="40" name="date" required="required"
-                        [disabled]="isDisabled">
+                        [disabled]=true>
                 </td>
+                <td  *ngIf="isDisabled">
+                    
+                    <label >Patient: {{patient.name}} {{patient.surname}}</label>
+                   
+                   </td>
               
 
             </tr>
@@ -27,13 +32,18 @@
                     <input [(ngModel)]="reviewDb.office" class="form-control" size="40" type="text" id="office"
                         name="office" required="required">
                 </td>
-                <td>
-                    <label>Patient</label>
-                    <select [ngModel]="selectedPatient" (ngModelChange)="onChange($event)" name="selectedPatient">
-                        <option [ngValue]="p" *ngFor="let p of patients">{{p.name}}{{p.surname}}</option>
-                    </select>
+                <td >
+                    <div *ngIf="!isDisabled">
+                        <label >Patient</label>
+                        <select [ngModel]="selectedPatient" (ngModelChange)="onChange($event)" name="selectedPatient" [disabled]="isDisabled">
+                            <option [ngValue]="p" *ngFor="let p of patients">{{p.name}}{{p.surname}}</option>
+                        </select>
+                    </div>
+                  
                    </td>
 
+                
+                  
 
             </tr>
 

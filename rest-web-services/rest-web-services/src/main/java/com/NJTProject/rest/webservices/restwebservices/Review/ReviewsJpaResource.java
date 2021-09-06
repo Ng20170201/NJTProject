@@ -19,8 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RestController
 public class ReviewsJpaResource {
 
-    @Autowired
-    private ReviewHardcodeService ReviewService;
+    
     @Autowired
     private ReviewJpaRepository reviewJpaRepository;
 
@@ -36,37 +35,34 @@ public class ReviewsJpaResource {
         return reviewJpaRepository.findAll();
     }
 
-    @GetMapping("/jpa/users/{username}/reviews/{doctorId}/{patientId}")
-    public Review getReview(@PathVariable String username, @PathVariable long patientId, @PathVariable long doctorId) {
-        return ReviewService.findById(doctorId, patientId);
+    @GetMapping("/jpa/users/{username}/reviews/{id}")
+    public Review getReview(@PathVariable String username, @PathVariable long id) {
+        return reviewJpaRepository.findById(id).get();
 
     }
+// return this.http.delete(`${REPORT_JPA_API_URL}/users/admin/reviews/${id}/${idP}/${idD}`);
 
-    @DeleteMapping("/jpa/users/{username}/reviews/{id}")
-    public ResponseEntity<Void> deleteReport(@PathVariable String username, @PathVariable long id) {
-       reviewJpaRepository.deleteById(id);
-
+      @DeleteMapping("/jpa/users/{username}/reviews/{id}/{patientid}/{doctorid}")
+    public ResponseEntity<Void> deleteReview(@PathVariable String username, @PathVariable long id,@PathVariable long patientid,@PathVariable long doctorid) {
+       reviewJpaRepository.deleteByIdAndPatientAndDoctor(id,patientid,doctorid);
       return ResponseEntity.noContent().build();
 
     }
+    
+   /* @DeleteMapping("/jpa/users/{username}/reviews/{id}")
+    public ResponseEntity<Void> deleteReview(@PathVariable String username, @PathVariable long id) {
+       reviewJpaRepository.deleteById(id);
+      return ResponseEntity.noContent().build();
 
-    @PutMapping("/jpa/users/{username}/reviews/{doctorId}/{patientId}")
-    public ResponseEntity<Review> updateReview(@PathVariable String username, @PathVariable long patientId, @PathVariable long doctorId, @RequestBody Review review) {
+    }*/
+//return this.http.put(`${REPORT_JPA_API_URL}/users/${username}/reviews/${id}`,reviewDb);
+    @PutMapping("/jpa/users/{username}/reviews/{id}")
+    public ResponseEntity<Review> updateReview(@PathVariable String username, @PathVariable long id, @RequestBody Review review) {
         Review reviewUpdate = reviewJpaRepository.save(review);
         return new ResponseEntity<Review>(review, HttpStatus.OK);
     }
 
    
-   /* @PostMapping("/jpa/users/{username}/reviews")
-    public ResponseEntity createReview(@PathVariable String username, @RequestBody Review review) {
-        
-        Review createdReview = ReviewService.save(review);
-        System.out.println("TREBA DA SE DODA: " + review);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().
-                path("/{doctorId}/{patientId}").buildAndExpand(createdReview.getDoctor().getId(), createdReview.getPatient().getId()).toUri();
-
-        return ResponseEntity.ok(review);
-    }*/
       @PostMapping("/jpa/users/{username}/reviews")
     public ResponseEntity createReview(@PathVariable String username, @RequestBody Review review) {
         

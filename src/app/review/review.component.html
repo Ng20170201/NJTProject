@@ -29,8 +29,8 @@
             <td>{{review.office}}</td>
             <td>{{review.description}}</td>
             <td>{{review.date | date:'MM/dd/yyyy'}}</td>
-            <td><button (click)="updateReview(review.doctorId,review.patientId)" class="btn btn-success">Update</button></td>
-            <td><button (click)="deleteReview(review.doctorId,review.doctorId)" class="btn btn-warning">Delete</button></td>
+            <td><button (click)="updateReview(review.id)" class="btn btn-success">Update</button></td>
+            <td><button (click)="deleteReview(review.id,review.patientId,review.doctorId)" class="btn btn-warning">Delete</button></td>
            
         </tr>
     </tbody>
