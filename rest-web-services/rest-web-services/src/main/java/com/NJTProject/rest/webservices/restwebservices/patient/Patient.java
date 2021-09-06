@@ -5,6 +5,7 @@
  */
 package com.NJTProject.rest.webservices.restwebservices.patient;
 
+import com.NJTProject.rest.webservices.restwebservices.Report.Report;
 import com.NJTProject.rest.webservices.restwebservices.Review.Review;
 import java.util.Date;
 import java.util.Set;
@@ -14,6 +15,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -26,9 +28,11 @@ import javax.persistence.OneToMany;
 
 @Entity
 //@Table(name="..")
+
 public class Patient {
 	@Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String UCIN;
     private String name;
@@ -38,28 +42,70 @@ public class Patient {
     private String telephone;
     private String password;
     
-    @OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    Set<Review>reviews;
-  
+    @OneToMany(mappedBy = "patient",cascade = CascadeType.ALL)
+    Set<Review> reviews;
+//    @OneToMany(  cascade = CascadeType.ALL)
+//    Set<Report> reports;
 
     public Patient() {
     }
 
-    public Patient(Long id, String UCIN, String name, String surname, Date birthdate, String email, String telephone, String password) {
-        this.id = id;
-        this.UCIN = UCIN;
-        this.name = name;
-        this.surname = surname;
-        this.birthdate = birthdate;
-        this.email = email;
-        this.telephone = telephone;
-        this.password = password;
-    }
-    
+//    public Patient(Long id, String UCIN, String name, String surname, Date birthdate, String email, String telephone, String password) {
+//        this.id = id;
+//        this.UCIN = UCIN;
+//        this.name = name;
+//        this.surname = surname;
+//        this.birthdate = birthdate;
+//        this.email = email;
+//        this.telephone = telephone;
+//        this.password = password;
+////        this.reports=reports;
+////        this.reviews=reviews;
+//    }
+//    
 
   
 
-    /**
+    public Patient(Long id, String uCIN, String name, String surname, Date birthdate, String email, String telephone,
+			String password, Set<Review> reviews) {
+		super();
+		this.id = id;
+		UCIN = uCIN;
+		this.name = name;
+		this.surname = surname;
+		this.birthdate = birthdate;
+		this.email = email;
+		this.telephone = telephone;
+		this.password = password;
+		this.reviews = reviews;
+//		this.reports = reports;
+	}
+
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public Set<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(Set<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+//	public Set<Report> getReports() {
+//		return reports;
+//	}
+//
+//	public void setReports(Set<Report> reports) {
+//		this.reports = reports;
+//	}
+
+	/**
      * @return the id
      */
     public Long getId() {

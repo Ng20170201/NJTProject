@@ -22,9 +22,9 @@ class PatientHardcodedService {
 
     static {
 
-        patients.add(new Patient(++idCounter, "123456", "Patient", "First", new Date(), "1@gmail.com", "12345678", "first"));
-        patients.add(new Patient(++idCounter, "123456", "Patient", "Second", new Date(), "2@gmail.com", "0123457", "second"));
-        patients.add(new Patient(++idCounter, "12154", "Patient", "Thirs", new Date(), "3@gmail.com", "123474841", "third"));
+//        patients.add(new Patient(++idCounter, "123456", "Patient", "First", new Date(), "1@gmail.com", "12345678", "first"));
+//        patients.add(new Patient(++idCounter, "123456", "Patient", "Second", new Date(), "2@gmail.com", "0123457", "second"));
+//        patients.add(new Patient(++idCounter, "12154", "Patient", "Thirs", new Date(), "3@gmail.com", "123474841", "third"));
 
     }
 
