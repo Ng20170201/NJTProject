@@ -70,6 +70,7 @@ export class ListPatientComponent implements OnInit {
   }
 
   deletePatient(id: number) {
+   
     this.patientService.deletePatient('admin', id).subscribe(
       response => {
         console.log("Successful deleting: " + response);
