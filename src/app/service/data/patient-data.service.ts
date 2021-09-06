@@ -16,6 +16,7 @@ export class PatientDataService {
       return this.http.get<PatientDB[]>(`${REPORT_JPA_API_URL}/users/${username}/patients`);
   }
   deletePatient(username:string,id:number){
+    console.log(`Brise se PATIENT  pod id:  ${id}`)
     return this.http.delete(`${REPORT_JPA_API_URL}/users/${username}/patients/${id}`);
   }
   getPatient(username:string,id:number){

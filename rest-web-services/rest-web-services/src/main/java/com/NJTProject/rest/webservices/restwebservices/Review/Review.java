@@ -29,15 +29,18 @@ public class Review implements Serializable{
     private String description;
     private String office;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+//    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "patientid")
     private Patient patient;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+//    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "doctorid")
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "review",cascade = CascadeType.ALL)
+    @OneToMany
+//    @OneToMany(mappedBy = "review",cascade = CascadeType.ALL)
     private Set<Report> reports;
     
    

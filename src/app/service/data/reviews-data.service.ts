@@ -57,6 +57,7 @@ export class ReviewsDataService {
 
   }*/
   deleteReviewDB(id:number,idP:number,idD:number){
+  
     return this.http.delete(`${REPORT_JPA_API_URL}/users/admin/reviews/${id}/${idP}/${idD}`);
 
   }

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 public interface ReviewJpaRepository extends JpaRepositoryImplementation<Review,Long> {
 
 	List<Review> findAll();
-
-    public void deleteByIdAndPatientAndDoctor(long id, long patientid, long doctorid);
+	public void deleteById(long Id);
+//    public void deleteByIdAndPatientAndDoctor(long id, long patientid, long doctorid);
 
 
 

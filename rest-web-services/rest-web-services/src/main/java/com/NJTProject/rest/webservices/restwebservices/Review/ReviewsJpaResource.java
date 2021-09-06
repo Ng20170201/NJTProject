@@ -44,7 +44,7 @@ public class ReviewsJpaResource {
 
       @DeleteMapping("/jpa/users/{username}/reviews/{id}/{patientid}/{doctorid}")
     public ResponseEntity<Void> deleteReview(@PathVariable String username, @PathVariable long id,@PathVariable long patientid,@PathVariable long doctorid) {
-       reviewJpaRepository.deleteById(id);
+      reviewJpaRepository.deleteById(id);
       return ResponseEntity.noContent().build();
 
     }

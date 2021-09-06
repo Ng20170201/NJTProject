@@ -18,6 +18,7 @@ export class ReportsDataService {
   }
   
   deleteReport(ID:number){
+    console.log(`Brise se report pod id:  ${ID}`);
     return this.http.delete(`${REPORT_JPA_API_URL}/users/admin/reports/${ID}`);
 
   }
