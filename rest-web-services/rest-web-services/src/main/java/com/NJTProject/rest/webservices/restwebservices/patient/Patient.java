@@ -42,7 +42,7 @@ public class Patient {
     private String telephone;
     private String password;
     
-    @OneToMany(mappedBy = "patient",cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     Set<Review> reviews;
 //    @OneToMany(  cascade = CascadeType.ALL)
 //    Set<Report> reports;
