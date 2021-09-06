@@ -41,8 +41,9 @@ export class ReviewComponent implements OnInit {
   deleteReview(id: number,patientid:number,doctorid:number) {
 
     //console.log(`delete report ${idD} AND ${idP}`)
-
+    
     this.reviewService.deleteReviewDB(id,patientid,doctorid).subscribe(
+    
       response => {
         console.log(response);
 
