@@ -12,9 +12,9 @@ import { ReviewsDataService } from '../service/data/reviews-data.service';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-  reviews: Review[]=[];
+  //reviews: Review[]=[];
   message: string='';
-  reviewsDb:ReviewDB[]=[];
+  reviews:ReviewDB[]=[];
 
   constructor(
     private reviewService: ReviewsDataService,
@@ -27,17 +27,15 @@ export class ReviewComponent implements OnInit {
   }
 
   refreshReviews() {
-    this.reviewsDb=[];
+    
     this.reviewService.retrieveAllReviews('admin').subscribe(
-      response => {
-        this.reviewsDb=response;
-        console.log("OVDEEEEE")
-        this.reviewsDb.forEach(element => {
-          console.log("OVDE "+ element)
-          this.reviews.push( new Review(element.id,element.patient.id,element.doctor.id,element.office,element.description,element.date));
-        });
+     
+        response=>{
+     
+          this.reviews=response;
+          console.log(this.reviews);
+        }
       
-      }
     )
   }
   deleteReview(id: number,patientid:number,doctorid:number) {

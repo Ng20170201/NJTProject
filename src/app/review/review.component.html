@@ -24,13 +24,13 @@
     </thead>
     <tbody>
         <tr *ngFor="let review of reviews">
-            <td>{{review.patientId}}</td>
-            <td>{{review.doctorId}}</td>
+            <td>{{review.patient.id}}</td>
+            <td>{{review.doctor.id}}</td>
             <td>{{review.office}}</td>
             <td>{{review.description}}</td>
             <td>{{review.date | date:'MM/dd/yyyy'}}</td>
             <td><button (click)="updateReview(review.id)" class="btn btn-success">Update</button></td>
-            <td><button (click)="deleteReview(review.id,review.patientId,review.doctorId)" class="btn btn-warning">Delete</button></td>
+            <td><button (click)="deleteReview(review.id,review.patient.id,review.doctor.id)" class="btn btn-warning">Delete</button></td>
            
         </tr>
     </tbody>
