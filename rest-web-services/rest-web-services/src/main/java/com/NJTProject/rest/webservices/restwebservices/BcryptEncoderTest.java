@@ -15,19 +15,21 @@ public class BcryptEncoderTest {
 
     private static String textPass;
     private static String encodedPassword;
-    private static BCryptPasswordEncoder encoder;
-
-    public static void main(String[] args) {
-
-        /*  for (int i = 1; i <= 10; i++) {
-            String encodedString = encoder.encode("nikola");
-            System.out.println(encodedString);
-        }*/
-        encoder = new BCryptPasswordEncoder();
-       
-
+    private static BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+//
+//    public static void main(String[] args) {
+//
+//        /*  for (int i = 1; i <= 10; i++) {
+//            String encodedString = encoder.encode("nikola");
+//            System.out.println(encodedString);
+//        }*/
+//        encoder = new BCryptPasswordEncoder();
+//       
+//
+//    }
+    public BcryptEncoderTest() {
+    	
     }
-
     public void setPassword(String textPass) {
         this.textPass = textPass;
     }

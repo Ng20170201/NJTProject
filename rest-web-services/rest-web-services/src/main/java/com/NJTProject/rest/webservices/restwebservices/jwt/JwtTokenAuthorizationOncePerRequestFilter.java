@@ -45,7 +45,8 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         logger.debug("Authentication Request For '{}'", request.getRequestURL());
-
+      
+       
         final String requestTokenHeader = request.getHeader(this.tokenHeader);
 
         String username = null;
@@ -65,9 +66,9 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
 
         logger.debug("JWT_TOKEN_USERNAME_VALUE '{}'", username);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-
+        	
             UserDetails userDetails = this.jwtInMemoryUserDetailsService.loadUserByUsername(username);
-
+            
             if (jwtTokenUtil.validateToken(jwtToken, userDetails)) {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
