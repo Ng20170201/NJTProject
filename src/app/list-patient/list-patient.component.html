@@ -1,13 +1,17 @@
 <h1 class="title">My patients</h1>
+
+
+<form (ngSubmit)= " searchPatient()" #patientForm="ngForm">
+<div><input type="search"  name="searchBar" [(ngModel)]="searchText" > <button  class="btn btn-success">Search</button></div>
+</form>
 <div style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
     
     <div>
         <button class="btn btn-success" (click)="addPatient()">Add patient</button>
 
     </div>
+
 </div>
-
-
 <div class="alert alert-success" *ngIf="message">
     {{message}}
 </div>

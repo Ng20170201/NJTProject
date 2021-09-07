@@ -11,6 +11,12 @@ import { Patient, PatientDB } from 'src/app/list-patient/list-patient.component'
 export class PatientDataService {
 
   constructor(private http:HttpClient) { }
+  
+  searchByText(username:string,searchText:String){
+   
+    return this.http.get<PatientDB[]>(`${REPORT_JPA_API_URL}/users/${username}/patients/search/${searchText}`);
+}
+
   retrieveAllPatients(username:string){
     
       return this.http.get<PatientDB[]>(`${REPORT_JPA_API_URL}/users/${username}/patients`);

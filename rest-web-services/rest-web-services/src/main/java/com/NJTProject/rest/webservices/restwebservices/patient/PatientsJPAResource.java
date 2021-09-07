@@ -7,6 +7,7 @@ package com.NJTProject.rest.webservices.restwebservices.patient;
 
 import com.NJTProject.rest.webservices.restwebservices.jwt.JwtInMemoryUserDetailsService;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,12 +42,30 @@ public class PatientsJPAResource {
         return patients;
 
     }
+    @GetMapping("/jpa/users/{username}/patients/search/{SearchText}")
+    public  List<Patient> searchByText(@PathVariable String username, @PathVariable String SearchText) {
+        // return patientService.findPatientById(id);
+    	List<Patient> patients=getAllPatients(username);
+    	List<Patient> returnPatient=new ArrayList<Patient>();
+   	
+    	for(int i=0;i<patients.size();i++) {
+    		
+    		
+    		if(patients.get(i).getName().toLowerCase().contains(SearchText.toLowerCase()) || patients.get(i).getSurname().toLowerCase().contains(SearchText.toLowerCase())) {
+    			returnPatient.add(patients.get(i));
+    		}
+    	}
+    
+    	return returnPatient;
 
+    }
+    
     @GetMapping("/jpa/users/{username}/patients/{id}")
     public Patient getPatient(@PathVariable String username, @PathVariable long id) {
         // return patientService.findPatientById(id);
         return patientsJpaRepository.findById(id).get();
     }
+    
 
     @DeleteMapping("/jpa/users/{username}/patients/{id}")
     public ResponseEntity<Void> deletePatient(@PathVariable String username, @PathVariable long id) {

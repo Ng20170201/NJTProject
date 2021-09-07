@@ -45,6 +45,7 @@ export class ListPatientComponent implements OnInit {
   patients: Patient[] = [];
   message!: string;
   patientsDB:PatientDB[]=[];
+  searchText:String="";
 
   constructor(
     private patientService: PatientDataService,
@@ -55,6 +56,23 @@ export class ListPatientComponent implements OnInit {
   ngOnInit(): void {
     this.refreshPatients();
   }
+
+searchPatient(){
+  this.patients=[];
+  if(this.searchText!=null && this.searchText!=""){
+  this.patientService.searchByText('admin',this.searchText).subscribe(
+  
+    response=>{
+      this.patients=response;
+      console.log("=====",this.patients);
+    }
+  )
+  }
+  else{
+    this.refreshPatients();
+  }
+}
+
   refreshPatients() {
     this.patients=[];
     this.patientService.retrieveAllPatients('admin').subscribe(
@@ -68,6 +86,9 @@ export class ListPatientComponent implements OnInit {
       }
     )
   }
+
+
+
 
   deletePatient(id: number) {
    
