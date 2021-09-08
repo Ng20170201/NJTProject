@@ -42,6 +42,13 @@ public class PatientsJPAResource {
         return patients;
 
     }
+    
+    @GetMapping("/jpa/users/patients")
+    public List<Patient> getAllPatientsWU(){
+        List<Patient> patients = patientsJpaRepository.findAll();
+        return patients;
+
+    } 
     @GetMapping("/jpa/users/{username}/patients/search/{SearchText}")
     public  List<Patient> searchByText(@PathVariable String username, @PathVariable String SearchText) {
         // return patientService.findPatientById(id);

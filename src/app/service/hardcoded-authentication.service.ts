@@ -28,11 +28,13 @@ export class HardcodedAuthenticationService {
   }
 
   isUserLoggedIn(){
+    
     let user = sessionStorage.getItem('authenticaterUser')
     if(user==='nikola')
     return true;
     return false;
   }
+
   isDoctorLoggedIn(){
     let user = sessionStorage.getItem('authenticaterUser')
     if(user==='admin')

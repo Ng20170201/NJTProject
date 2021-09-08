@@ -23,4 +23,11 @@ public class DoctorJpaResource {
 	        return doctors;
 
 	    }
+	 
+	  @GetMapping("/jpa/users/doctors")
+	    public List<Doctor> getAllDoctorsWU(){
+	        List<Doctor> doctors = doctorJpaRepository.findAll();
+	        return doctors;
+
+	    } 
 }

@@ -5,18 +5,18 @@
         </div>
 
         <ul class="navbar-nav">
-            <li><a  *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/welcome/nikola" class="nav-link"> Home </a></li>
-            <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/welcome-doctor/nikola" class="nav-link"> Home </a></li>
-            <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/list-patient" class="nav-link"> Patients </a></li>
-            <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/review" class="nav-link"> Reviews </a></li>
-            <li><a  *ngIf="hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/report" class="nav-link"> Reports </a></li>
-            <li><a  *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/patient-reviews" class="nav-link"> My reviews </a></li>
-            <li><a  *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/patient-reports" class="nav-link"> My reports </a></li>
+            <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/welcome/" class="nav-link"> Home </a></li>
+            <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/welcome-doctor/" class="nav-link"> Home </a></li>
+            <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/list-patient" class="nav-link"> Patients </a></li>
+            <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/review" class="nav-link"> Reviews </a></li>
+            <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/report" class="nav-link"> Reports </a></li>
+            <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/patient-reviews" class="nav-link"> My reviews </a></li>
+            <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/patient-reports" class="nav-link"> My reports </a></li>
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">
-            <li><a  *ngIf="!hardcodedAuthenticationService.isUserLoggedIn() && !hardcodedAuthenticationService.isDoctorLoggedIn()" routerLink="/login" class="nav-link"> Login </a></li>
-            <li><a  *ngIf="hardcodedAuthenticationService.isUserLoggedIn() || hardcodedAuthenticationService.isDoctorLoggedIn()"  routerLink="/logout" class="nav-link"> Logout </a></li>
+            <li><a  *ngIf="!basicAuthService.isUserLoggedIn() && !basicAuthService.isDoctorLoggedIn()" routerLink="/login" class="nav-link"> Login </a></li>
+            <li><a  *ngIf="basicAuthService.isUserLoggedIn() || basicAuthService.isDoctorLoggedIn()"  routerLink="/logout" class="nav-link"> Logout </a></li>
         </ul>
     </nav>
 </header>
