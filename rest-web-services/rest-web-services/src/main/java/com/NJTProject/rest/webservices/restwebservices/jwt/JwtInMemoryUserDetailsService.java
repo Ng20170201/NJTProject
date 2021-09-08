@@ -236,6 +236,12 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 		}
 		
 		@Override
+		public Doctor findByUsername(String username) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
 		public List<Doctor> findAll() {
 			// TODO Auto-generated method stub
 			return null;

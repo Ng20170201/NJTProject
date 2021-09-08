@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Review, ReviewDB } from '../patient-reviews/patinet-reviews.component';
+import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReviewsDataService } from '../service/data/reviews-data.service';
 // import { Review } from '../patient-reviews/patient-reviews.component';
 
@@ -60,7 +61,7 @@ export class ReviewComponent implements OnInit {
 
   }
   addReview() {
-    this.router.navigate(['reviews', 1, -1]) //zakucan id doktora na 1
+    this.router.navigate(['reviews', sessionStorage.getItem(AUTHENTICATED_USER), -1]) //zakucan id doktora na 1
     //this.router.navigate(['reviews',-1]);
   }
 

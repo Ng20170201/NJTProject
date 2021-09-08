@@ -133,7 +133,7 @@ export class LoginComponent implements OnInit {
      
     
       for(let i=0;i<patients.length;i++){
-        console.log(patients[i].ucin,"?",userName)
+        
         if(userName==patients[i].ucin){
           return 'patient';
       }
@@ -146,7 +146,7 @@ export class LoginComponent implements OnInit {
      
      
     for(let i=0;i<doctors.length;i++){
-        console.log(doctors[i].username,"?",userName)
+     
         if(userName==doctors[i].username){
         return 'doctor';
         }

@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
+import com.NJTProject.rest.webservices.restwebservices.doctor.DoctorJpaRepository;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class ReviewsJpaResource {
@@ -22,6 +25,9 @@ public class ReviewsJpaResource {
     
     @Autowired
     private ReviewJpaRepository reviewJpaRepository;
+    
+    @Autowired
+    private DoctorJpaRepository doctorJpaRepository;
 
     @GetMapping("/jpa/users/{username}/reviews")
     public List<Review> getAllReviews(@PathVariable String username) {
@@ -65,7 +71,9 @@ public class ReviewsJpaResource {
    
       @PostMapping("/jpa/users/{username}/reviews")
     public ResponseEntity createReview(@PathVariable String username, @RequestBody Review review) {
-        
+        Doctor d1=doctorJpaRepository.findByUsername(username);
+        review.setDoctor(d1);
+        System.out.println("ovo je rev new "+review);
         Review createdReview = reviewJpaRepository.save(review);
         System.out.println("TREBA DA SE DODA: " + review);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().

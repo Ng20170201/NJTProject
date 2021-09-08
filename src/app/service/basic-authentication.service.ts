@@ -98,6 +98,7 @@ return this.http.post<any>(`${API_URL}/authenticate`,{username,password}).pipe(
     (      data: any) =>{
       sessionStorage.setItem(AUTHENTICATED_USER,username);
       sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
+
       return data;
     }
   )
@@ -120,18 +121,31 @@ getAuthenticatedToken(){
   
 }
 
-
+stringContainsNumber(_string:string) {
+  return /\d/.test(_string);
+}
   isUserLoggedIn(){
     let user = sessionStorage.getItem(AUTHENTICATED_USER)
-    
-    if(user==='nikola')
-    return true;
+    if(this.stringContainsNumber(user+"")){
+      return true;
+    }
+    // if(user==='nikola')
+    // return true;
     return false;
   }
+  stringContainsLeters(_string:string) {
+    return /^[a-zA-Z]+$/.test(_string);
+  }
+  
   isDoctorLoggedIn(){
+    
     let user = sessionStorage.getItem(AUTHENTICATED_USER)
-    if(user==='admin')
+   
+     if(this.stringContainsLeters(user+"") && user!=null){
+       console.log
+    // if(user==='admin'){
     return true;
+  }
     return false;
   }
   logout(){
