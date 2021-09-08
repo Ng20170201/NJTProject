@@ -29,6 +29,7 @@ const routes: Routes = [
   {path:'patient-reviews',component:PatinetReviewComponent,canActivate:[RouteGuardService]},
   {path:'patient-reports',component:PatientReportsComponent,canActivate:[RouteGuardService]},
   {path:'patients/:id',component:PatientComponent,canActivate:[RouteGuardDoctorService]},
+  {path:'reports/:idReview/:id',component:OneReportComponent,canActivate:[RouteGuardDoctorService]},
   {path:'reports/:id',component:OneReportComponent,canActivate:[RouteGuardDoctorService]},
   {path:'reviews/:id',component:OneReviewComponent,canActivate:[RouteGuardDoctorService]},
   {path:'reviews/:id1/:id2',component:OneReviewComponent,canActivate:[RouteGuardDoctorService]},

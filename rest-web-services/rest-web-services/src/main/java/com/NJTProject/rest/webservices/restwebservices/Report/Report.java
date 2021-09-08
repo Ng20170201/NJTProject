@@ -4,6 +4,7 @@ import com.NJTProject.rest.webservices.restwebservices.Review.Review;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -14,8 +15,8 @@ import javax.persistence.ManyToOne;
 public class Report {
 
     @Id
-    @GeneratedValue
-
+//    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
     private String diagnosis;
     private String therapy;
@@ -83,6 +84,20 @@ public class Report {
         return "Report [id=" + id + ", diagnosis=" + diagnosis + ", therapy=" + therapy + ", note=" + note + "]";
     }
 
+	public Review s() {
+		return this.review;
+	}
+	public void se(Review review) {
+	 this.review=review;
+	}
+	public Report(Long id, String diagnosis, String therapy, String note, Review review) {
+		super();
+		this.id = id;
+		this.diagnosis = diagnosis;
+		this.therapy = therapy;
+		this.note = note;
+		this.review = review;
+	}
 
 
    

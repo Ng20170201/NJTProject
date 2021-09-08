@@ -74,7 +74,8 @@ public class ReviewsJpaResource {
 
     @GetMapping("/jpa/users/{username}/reviews/{id}")
     public Review getReview(@PathVariable String username, @PathVariable long id) {
-        return reviewJpaRepository.findById(id).get();
+        return reviewJpaRepository.findById(id);
+		
 
     }
 // return this.http.delete(`${REPORT_JPA_API_URL}/users/admin/reviews/${id}/${idP}/${idD}`);

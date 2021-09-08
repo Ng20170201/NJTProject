@@ -19,9 +19,9 @@ public class ReportHardcodeService {
 		private static long idCounter=0;
 		
 		static {
-			reports.add(new Report(++idCounter,"Diagnosys1","Therapy1","Note1"));
-			reports.add(new Report(++idCounter,"Diagnosys2","Therapy2","Note2"));
-			reports.add(new Report(++idCounter,"Diagnosys3","Therapy3","Note3"));
+//			reports.add(new Report(++idCounter,"Diagnosys1","Therapy1","Note1"));
+//			reports.add(new Report(++idCounter,"Diagnosys2","Therapy2","Note2"));
+//			reports.add(new Report(++idCounter,"Diagnosys3","Therapy3","Note3"));
 		}
 		public List<Report> findAll(){
 			return reports;

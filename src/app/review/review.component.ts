@@ -64,8 +64,8 @@ export class ReviewComponent implements OnInit {
     this.router.navigate(['reviews', sessionStorage.getItem(AUTHENTICATED_USER), -1])
   }
 
-  addReport(){
-    this.router.navigate(['reports',-1])
+  addReport(idReview:number){
+    this.router.navigate(['reports',idReview,-1])
 
   }
 

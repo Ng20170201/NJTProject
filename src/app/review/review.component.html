@@ -32,7 +32,7 @@
             <td>{{review.date | date:'MM/dd/yyyy'}}</td>
             <td><button (click)="updateReview(review.id)" class="btn btn-success">Update</button></td>
             <td><button (click)="deleteReview(review.id,review.patient.id,review.doctor.id)" class="btn btn-warning">Delete</button></td>
-            <td><button  (click)="addReport()"class="btn btn-warning">Add report</button></td>
+            <td><button  (click)="addReport(review.id)"class="btn btn-warning">Add report</button></td>
 
         </tr>
     </tbody>

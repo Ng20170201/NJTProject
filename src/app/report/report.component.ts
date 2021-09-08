@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReportsDataService } from '../service/data/reports-data.service';
 
 // export class Report{
@@ -20,6 +21,9 @@ export class Report{
     public diagnosis:string,
     public therapy:string,
     public note: string,
+    public doctorId:number,
+    public patientId:number,
+    public date:Date
 
   ){
 
@@ -55,7 +59,7 @@ export class ReportComponent implements OnInit {
    
   }
   refreshReports(){
-      this.reportsservice.retrieveAllReports('admin').subscribe(
+      this.reportsservice.retrieveAllReports(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
         response=>{
      
           this.reports=response;
