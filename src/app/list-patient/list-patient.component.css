@@ -22,8 +22,9 @@
 .title{
     display: flex;
     justify-content: center;
-    margin-top: 15px;
     color:#003459;
+    margin-bottom: 50px;
+    margin-top: -20px;
 
 }
 .table{
@@ -33,4 +34,9 @@
 thead{
     background-color:rgb(112, 157, 184);
 
+}
+.search{
+    padding: 5px;
+    margin:5px;
+    margin-top:-10px;
 }

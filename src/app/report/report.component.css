@@ -23,9 +23,9 @@
 .title{
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    
     color:#003459;
-
+    margin-bottom: 50px;
 }
 .table{
     border-top: 1px solid #003459;;

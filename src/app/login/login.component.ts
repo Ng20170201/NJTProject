@@ -14,8 +14,8 @@ import { HardcodedAuthenticationService } from '../service/hardcoded-authenticat
 })
 export class LoginComponent implements OnInit {
 
-  username='nikola'
-  password='nikola'
+  username=''
+  password=''
   errorMessage='Invalid '
   invalidLogin=false
   doctors:Array<DoctorDB>=new Array<DoctorDB>()

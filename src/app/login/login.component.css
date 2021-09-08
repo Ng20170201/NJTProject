@@ -10,9 +10,7 @@ label{
 }
 .body{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+   
 }
 .container{
     border:1px solid black;
@@ -21,6 +19,8 @@ label{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background-color: rgba(96, 163, 204, 0.76);
+    color:#003459;;
     
 }
 div{
@@ -29,4 +29,13 @@ div{
 }
 .btn{
     align-items: flex-end;
+    background-color:#003459;;
+    border: solid #003459 1px;
+    margin-left: 200px;
+}
+.btnS{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -1,6 +1,6 @@
 form{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     border: 3px solid #003459;
     border-style: dotted;
