@@ -9,6 +9,7 @@ public interface ReviewJpaRepository extends JpaRepositoryImplementation<Review,
 
 	List<Review> findAll();
 	public void deleteById(long Id);
+	public Review findById(long Id);
 //    public void deleteByIdAndPatientAndDoctor(long id, long patientid, long doctorid);
 
 

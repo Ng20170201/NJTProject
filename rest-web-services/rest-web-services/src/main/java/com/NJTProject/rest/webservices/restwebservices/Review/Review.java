@@ -148,7 +148,13 @@ public class Review implements Serializable{
         return reports;
     }
 
-    /**
+    @Override
+	public String toString() {
+		return "Review [id=" + id + ", date=" + date + ", description=" + description + ", office=" + office
+				+ ", patient=" + patient + ", doctor=" + doctor + ", reports=" + reports + "]";
+	}
+
+	/**
      * @param reports the reports to set
      */
     public void setReports(Set<Report> reports) {

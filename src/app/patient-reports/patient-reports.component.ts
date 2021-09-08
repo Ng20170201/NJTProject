@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Report } from '../report/report.component';
+import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReportsDataService } from '../service/data/reports-data.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class PatientReportsComponent implements OnInit {
   constructor(private reportsservice: ReportsDataService) { }
 
   ngOnInit(): void {
-    this.reportsservice.retrieveAllReports('nikola').subscribe(
+    this.reportsservice.retrieveAllReports(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
       response=>{
         console.log(response);
         this.reports=response;

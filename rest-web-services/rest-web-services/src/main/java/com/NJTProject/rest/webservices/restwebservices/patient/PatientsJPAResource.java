@@ -57,8 +57,8 @@ public class PatientsJPAResource {
    	
     	for(int i=0;i<patients.size();i++) {
     		
-    		
-    		if(patients.get(i).getName().toLowerCase().contains(SearchText.toLowerCase()) || patients.get(i).getSurname().toLowerCase().contains(SearchText.toLowerCase())) {
+    		String marge=patients.get(i).getName().toLowerCase()+ " "+ patients.get(i).getSurname().toLowerCase();
+    		if(patients.get(i).getName().toLowerCase().contains(SearchText.toLowerCase()) || patients.get(i).getSurname().toLowerCase().contains(SearchText.toLowerCase())  || marge.contains(SearchText.toLowerCase())  ) {
     			returnPatient.add(patients.get(i));
     		}
     	}

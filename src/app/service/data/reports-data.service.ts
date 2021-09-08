@@ -27,11 +27,12 @@ export class ReportsDataService {
 
   }
 
-  createReport(report:Report){
-    return this.http.post(`${REPORT_JPA_API_URL}/users/admin/reports/${report.id}`,report);
+  createReport(idReview:number,username:String,report:Report){
+    console.log(report)
+    return this.http.post(`${REPORT_JPA_API_URL}/users/${username}/reports/${idReview}/${report.id}`,report);
   }
 
-  updateReport(id:number,report:Report){
-    return this.http.put(`${REPORT_JPA_API_URL}/users/admin/reports/${id}`,report);
+  updateReport(username:String,id:number,report:Report){
+    return this.http.put(`${REPORT_JPA_API_URL}/users/${username}/reports/${id}`,report);
   }
 }

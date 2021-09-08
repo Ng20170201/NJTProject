@@ -1,7 +1,9 @@
 package com.NJTProject.rest.webservices.restwebservices.Report;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.Servlet;
 
@@ -18,6 +20,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.NJTProject.rest.webservices.restwebservices.Review.Review;
+import com.NJTProject.rest.webservices.restwebservices.Review.ReviewJpaRepository;
+import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
+import com.NJTProject.rest.webservices.restwebservices.doctor.DoctorJpaRepository;
+import com.NJTProject.rest.webservices.restwebservices.patient.Patient;
+import com.NJTProject.rest.webservices.restwebservices.patient.PatientsJpaRepository;
+
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
@@ -27,18 +36,53 @@ public class ReportsJPAResource {
 	
 	@Autowired
 	private ReportJpaRepository reportJpaRepository;
-
+	@Autowired
+	private ReviewJpaRepository reviewJpaRepository;
+	@Autowired
+	private DoctorJpaRepository doctorJpaRepository;
+	@Autowired
+	private PatientsJpaRepository patientsJpaRepository;
+	
+	
 	@GetMapping("/jpa/users/{username}/reports")
 	public List<Report> getAllReports(@PathVariable String username){
 //		return ReportService.findAll();
-		return reportJpaRepository.findAll();
+		List<Report> reports= reportJpaRepository.findAll();
+	
+		Doctor doctor= doctorJpaRepository.findByUsername(username);
+		
+		Patient patient= patientsJpaRepository.findByUCIN(username);
+		
+		List<Report> ReturnReports= new ArrayList<Report>();
+		
+		if(doctor!=null) {
+		
+		for(int i=0;i<reports.size();i++) {
+			if(reports.get(i).s().getDoctor().getId()==doctor.getId())
+				ReturnReports.add(reports.get(i));
+		}
+		}
+		if(patient!=null) {
+			
+			for(int i=0;i<reports.size();i++) {
+				if(reports.get(i).s().getPatient().getUCIN()==patient.getUCIN())
+					ReturnReports.add(reports.get(i));
+		}
 
 		
+
+		
+	}
+		return ReturnReports;
 	}
 	@GetMapping("/jpa/users/{username}/reports/{id}")
 	public Report getReport(@PathVariable String username, @PathVariable long id){
 //		return ReportService.findById(id);
-		return reportJpaRepository.findById(id).get();
+//		System.out.println(reportJpaRepository.findById(id).get());
+		Report r1=reportJpaRepository.findById(id);
+		
+		
+		return r1;
 		
 	
 		
@@ -56,15 +100,24 @@ public class ReportsJPAResource {
 	@PutMapping("/jpa/users/{username}/reports/{id}")
 	public  ResponseEntity<Report> updateReport(@PathVariable String username, @PathVariable long id, @RequestBody Report report){
 	//	Report reportUpdate=ReportService.save(report);		
+		Report report1=reportJpaRepository.findById(id);
+		Review r=report1.s();
+		 report.se(r);
+		 System.out.println("-------"+r);
 		Report reportUpdated= reportJpaRepository.save(report);
-		return new ResponseEntity<Report>(report,HttpStatus.OK);
+//		List<Review> reviews=reviewJpaRepository
+		return new ResponseEntity<Report>(reportUpdated,HttpStatus.OK);
 	}
 
-	@PostMapping("/jpa/users/{username}/reports/{id}")
-	public  ResponseEntity<Void> CreateReport(@PathVariable String username, @RequestBody Report report){
-//		Report createdReport=ReportService.save(report);		
-			Report createdReport= reportJpaRepository.save(report);
+	@PostMapping("/jpa/users/{username}/reports/{idReview}/{id}")
+	public  ResponseEntity<Void> CreateReport(@PathVariable String username,@PathVariable long idReview,@PathVariable long id, @RequestBody Report report){
+		Review r1=reviewJpaRepository.findById(idReview);
+		List<Review> rev=reviewJpaRepository.findAll();
+
 		
+		report.se(r1);
+		Report createdReport= reportJpaRepository.save(report);
+
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().
 			 path("/{id}").buildAndExpand(createdReport.getId()).toUri();
 	
