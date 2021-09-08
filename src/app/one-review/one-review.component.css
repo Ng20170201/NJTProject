@@ -5,6 +5,7 @@ form{
     border: 3px solid #003459;
     border-style: dotted;
     background-color: rgb(135, 163, 180);
+    margin-top: -40px;
 }
 .ng-invalid:not(form){
     border-left: 5px solid red;
@@ -30,9 +31,10 @@ tr{
 .title{
     display: flex;
     justify-content: center;
-    margin-top: 15px;
     color:#003459;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    margin-top: -50px;
+    padding:10px;
 
 
 }
