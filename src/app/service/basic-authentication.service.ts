@@ -123,6 +123,7 @@ getAuthenticatedToken(){
 
   isUserLoggedIn(){
     let user = sessionStorage.getItem(AUTHENTICATED_USER)
+    
     if(user==='nikola')
     return true;
     return false;
