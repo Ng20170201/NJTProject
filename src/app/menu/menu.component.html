@@ -8,9 +8,9 @@
             <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/welcome/" class="nav-link"> Home </a></li>
             <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/welcome-doctor/" class="nav-link"> Home </a></li>
             <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/list-patient" class="nav-link"> Patients </a></li>
-            <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/review" class="nav-link"> Reviews </a></li>
+            <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/review" class="nav-link"> Appointments </a></li>
             <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/report" class="nav-link"> Reports </a></li>
-            <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/patient-reviews" class="nav-link"> My reviews </a></li>
+            <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/patient-reviews" class="nav-link"> My appointments </a></li>
             <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/patient-reports" class="nav-link"> My reports </a></li>
         </ul>
 

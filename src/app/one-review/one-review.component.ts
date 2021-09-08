@@ -61,6 +61,7 @@ export class OneReviewComponent implements OnInit {
         console.log("Get review by id -> office: "+data.office);
         this.reviewDb = data;
         this.patient=this.reviewDb.patient;
+        
         this.review=new Review(this.id2,this.reviewDb.patient.id,this.reviewDb.doctor.id,this.reviewDb.office,this.reviewDb.description,this.reviewDb.date);
         
       

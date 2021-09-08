@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { PatientDataService } from '../service/data/patient-data.service';
 import { ReviewsDataService } from '../service/data/reviews-data.service';
 import { PatientDB } from '../list-patient/list-patient.component';
+import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 
 
 export class Review {
@@ -67,23 +68,16 @@ export class DepartmentDB{
 
 
 
-export class PatinetReviewsComponent implements OnInit {
+export class PatinetReviewComponent implements OnInit {
 
   message: String = ""
   closeResult: string = ""
-  reviews: Review[] = [];
-
-  //    new Review(1,'Diagnosis 1','Therapy 1','Note 1'),
-  //    new Review(2,'Diagnosis 2','Therapy 2','Note 2'),
-  //    new Review(3,'Diagnosis 3','Therapy 3','Note 3')
-
-  //  ]
-
-  constructor(private reviewsservice: ReviewsDataService
-    // private httpClient:HttpClient,
-    // private modalService:NgbModule,
-    // private modalDismiss:ModalDismissReasons,
-    // private router:Router
+  reviews: ReviewDB[] = [];
+  
+ 
+  constructor(
+    private reviewService: ReviewsDataService,
+  
 
   ) {
 
@@ -91,12 +85,19 @@ export class PatinetReviewsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.reviewsservice.retrieveAllReviews('nikola').subscribe(
-      response => {
-        console.log(response);
-       // this.reviews = response;
-       console.log("Nije jos uradjeno");
-      }
+   this.refreshReviews();
+  }
+  
+  refreshReviews() {
+    
+    this.reviewService.retrieveAllReviews(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
+     
+        response=>{
+     
+          this.reviews=response;
+          console.log(this.reviews);
+        }
+      
     )
   }
 

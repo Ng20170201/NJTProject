@@ -82,9 +82,6 @@ export class ReportComponent implements OnInit {
     this.router.navigate(['reports',`${id}`])
 
   }
-  addReport(){
-    this.router.navigate(['reports',-1])
 
-  }
   
 }

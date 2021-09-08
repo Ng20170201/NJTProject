@@ -6,20 +6,13 @@
 package com.NJTProject.rest.webservices.restwebservices.jwt;
 
 import com.NJTProject.rest.webservices.restwebservices.BcryptEncoderTest;
-import com.NJTProject.rest.webservices.restwebservices.Report.ReportJpaRepository;
 import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
 import com.NJTProject.rest.webservices.restwebservices.doctor.DoctorJpaRepository;
-/**
- *
- * @author Andjela
- */
 import com.NJTProject.rest.webservices.restwebservices.patient.Patient;
 import com.NJTProject.rest.webservices.restwebservices.patient.PatientsJpaRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -453,6 +446,11 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
+            @Override
+            public Patient findByUCIN(String ucin) {
+                return null;
+            }
 	};
 	
 	List<Doctor> doctors=doctorJpaRepository.findAll();

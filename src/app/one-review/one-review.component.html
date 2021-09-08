@@ -1,62 +1,67 @@
+<h1 class="title">Appointment</h1>
+
 <body>
     <div class="container">
-        <h1 class="title">New review info</h1>
+
         <div class="alert alert-warning" *ngIf="reviewForm.dirty && reviewForm.invalid">Please fill in required form
             fields</div>
         <form class="form-group" (ngSubmit)="!reviewForm.invalid && SaveReview()" #reviewForm="ngForm">
-            <tr>
-                <td>
-                    <label>Date</label>
+            <tr class="first-row">
+                <td class="date">
+                    <label>Date:</label>
                     <input [ngModel]="reviewDb.date | date:'yyyy-MM-dd'" (ngModel)="reviewDb.date" class="form-control"
-                        type="date" id="date" name="date" size="40" name="date" required="required"
-                        [disabled]=true>
+                        type="date" id="date" name="date" size="40" name="date" required="required" [disabled]=true>
                 </td>
-                <td  *ngIf="isDisabled">
-                    
-                    <label >Patient: {{patient.name}} {{patient.surname}}</label>
-                   
-                   </td>
-              
+                <td>
+                    <div *ngIf="!isDisabled">
+                        <label>Patient: &nbsp; &nbsp;</label>
+                        <select [ngModel]="selectedPatient" (ngModelChange)="onChange($event)" name="selectedPatient"
+                            [disabled]="isDisabled">
+                            <option value="0" disabled selected>Select your patient</option>
+                            <option [ngValue]="p" *ngFor="let p of patients" >{{p.name}} {{p.surname}}</option>
+                        </select>
+                    </div>
 
+                </td>
+                <td *ngIf="isDisabled">
+
+                    <label class="updatePatient">Patient: {{patient.name}} {{patient.surname}}</label>
+
+                </td>
+
+
+            </tr>
+            <tr>
+              
             </tr>
 
             <tr style="display: flex; justify-content: flex-start; margin-left: 100px;">
 
-              
-               <td></td>
+
+                <td></td>
 
             </tr>
-            <tr>
-                <td>
-                    <label>Office</label>
-                    <input [(ngModel)]="reviewDb.office" class="form-control" size="40" type="text" id="office"
-                        name="office" required="required">
-                </td>
-                <td >
-                    <div *ngIf="!isDisabled">
-                        <label >Patient</label>
-                        <select [ngModel]="selectedPatient" (ngModelChange)="onChange($event)" name="selectedPatient" [disabled]="isDisabled">
-                            <option [ngValue]="p" *ngFor="let p of patients">{{p.name}}{{p.surname}}</option>
-                        </select>
-                    </div>
-                  
-                   </td>
+            <tr class="office">
+                <label>Office: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label>
+                <input [(ngModel)]="reviewDb.office" class="form-control " size="40" type="text" id="office"
+                    name="office" required="required" placeholder="Enter office number..">
 
-                
-                  
+
 
             </tr>
 
-            <tr>
-               
-                   
-                           <label>Description </label>
-                    <textarea rows="7"  [(ngModel)]="reviewDb.description" class="form-control" size="40" type="text" id="description"
-                        name="description" required="required" minlength="5"></textarea>
 
-                    
-                     
-                
+            <tr class="description">
+
+                <label>Description: &nbsp; </label>
+
+                <textarea rows="7" [(ngModel)]="reviewDb.description" class="form-control " size="40" type="text"
+                    id="description" name="description" required="required" minlength="5"
+                    placeholder="Enter description.."></textarea>
+
+
+
+
             </tr>
 
 

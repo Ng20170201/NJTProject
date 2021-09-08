@@ -15,7 +15,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { ReviewComponent } from './review/review.component';
 import { ReportComponent } from './report/report.component';
 import { PatientReportsComponent } from './patient-reports/patient-reports.component';
-import { PatinetReviewsComponent } from './patient-reviews/patinet-reviews.component';
+import { PatinetReviewComponent } from './patient-reviews/patinet-reviews.component';
 import { WelcomeDoctorComponent } from './welcome-doctor/welcome-doctor.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -41,7 +41,7 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     ReviewComponent,
     ReportComponent,
     PatientReportsComponent,
-    PatinetReviewsComponent,
+    PatinetReviewComponent,
     WelcomeDoctorComponent,
     PatientComponent,
     OneReportComponent,

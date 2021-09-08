@@ -18,6 +18,9 @@ public interface PatientsJpaRepository extends JpaRepositoryImplementation<Patie
 
 	//List<Patient> findByUsername(String username);
 	List<Patient> findAll();
+
+
+    public Patient findByUCIN(String username);
 	
     
 }

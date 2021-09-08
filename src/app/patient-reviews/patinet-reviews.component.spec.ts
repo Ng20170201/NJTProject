@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PatinetReviewsComponent } from './patinet-reviews.component';
+import { PatinetReviewComponent } from './patinet-reviews.component';
 
 describe('PatinetReviewsComponent', () => {
-  let component: PatinetReviewsComponent;
-  let fixture: ComponentFixture<PatinetReviewsComponent>;
+  let component: PatinetReviewComponent;
+  let fixture: ComponentFixture<PatinetReviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PatinetReviewsComponent ]
+      declarations: [ PatinetReviewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PatinetReviewsComponent);
+    fixture = TestBed.createComponent(PatinetReviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Review, ReviewDB } from '../patient-reviews/patinet-reviews.component';
+import { DoctorDB, Review, ReviewDB } from '../patient-reviews/patinet-reviews.component';
 import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReviewsDataService } from '../service/data/reviews-data.service';
 // import { Review } from '../patient-reviews/patient-reviews.component';
@@ -13,9 +13,9 @@ import { ReviewsDataService } from '../service/data/reviews-data.service';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-  //reviews: Review[]=[];
   message: string='';
   reviews:ReviewDB[]=[];
+  doctor?:DoctorDB;
 
   constructor(
     private reviewService: ReviewsDataService,
@@ -29,11 +29,12 @@ export class ReviewComponent implements OnInit {
 
   refreshReviews() {
     
-    this.reviewService.retrieveAllReviews('admin').subscribe(
+    this.reviewService.retrieveAllReviews(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
      
         response=>{
-     
+         
           this.reviews=response;
+        
           console.log(this.reviews);
         }
       
@@ -41,7 +42,6 @@ export class ReviewComponent implements OnInit {
   }
   deleteReview(id: number,patientid:number,doctorid:number) {
 
-    //console.log(`delete report ${idD} AND ${idP}`)
     
     this.reviewService.deleteReviewDB(id,patientid,doctorid).subscribe(
     
@@ -57,15 +57,17 @@ export class ReviewComponent implements OnInit {
   }
   updateReview(id: number) {
     
-    this.router.navigate(['reviews',1, id]);
+    this.router.navigate(['reviews',sessionStorage.getItem(AUTHENTICATED_USER), id]);
 
   }
   addReview() {
-    this.router.navigate(['reviews', sessionStorage.getItem(AUTHENTICATED_USER), -1]) //zakucan id doktora na 1
-    //this.router.navigate(['reviews',-1]);
+    this.router.navigate(['reviews', sessionStorage.getItem(AUTHENTICATED_USER), -1])
   }
 
+  addReport(){
+    this.router.navigate(['reports',-1])
 
+  }
 
 
 }

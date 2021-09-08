@@ -1,8 +1,8 @@
-<h1 class="title">Reviews</h1>
+<h1 class="title">Appointments</h1>
 <div style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
     
     <div>
-        <button class="btn btn-success" (click)="addReview()">Add review</button>
+        <button class="btn btn-success" (click)="addReview()">Add appointment</button>
 
     </div>
 </div>
@@ -13,25 +13,27 @@
    
     <thead>
         <tr>
-            <th>Patient ID</th>
-            <th>Doctor ID</th>
+         
+            <th>Patient </th>
             <th>Office</th>
             <th>Description</th>
             <th>Date</th>
             <th>Update</th>
             <th>Delete</th>
+            <th>Add report</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let review of reviews">
-            <td>{{review.patient.id}}</td>
-            <td>{{review.doctor.id}}</td>
+           
+            <td>{{review.patient.name}} {{review.patient.surname}}</td>
             <td>{{review.office}}</td>
             <td>{{review.description}}</td>
             <td>{{review.date | date:'MM/dd/yyyy'}}</td>
             <td><button (click)="updateReview(review.id)" class="btn btn-success">Update</button></td>
             <td><button (click)="deleteReview(review.id,review.patient.id,review.doctor.id)" class="btn btn-warning">Delete</button></td>
-           
+            <td><button  (click)="addReport()"class="btn btn-warning">Add report</button></td>
+
         </tr>
     </tbody>
     </table>
