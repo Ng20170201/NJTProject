@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SimpleOuterSubscriber } from 'rxjs/internal/innerSubscribe';
 import { Patient, PatientDB } from '../list-patient/list-patient.component';
 import { DepartmentDB, DoctorDB,  Review, ReviewDB } from '../patient-reviews/patinet-reviews.component';
+import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { PatientDataService } from '../service/data/patient-data.service';
 import { ReviewsDataService } from '../service/data/reviews-data.service';
 
@@ -75,7 +76,7 @@ export class OneReviewComponent implements OnInit {
     if (this.id2 ==-1 ) {
       //create todo
       console.log("create review office: "+this.reviewDb.office);
-      this.reviewService.createReviewDB('admin', this.reviewDb).subscribe(
+      this.reviewService.createReviewDB(sessionStorage.getItem(AUTHENTICATED_USER)+"", this.reviewDb).subscribe(
         response => {
           console.log("ODGOVOR"+response);
           this.router.navigateByUrl("/review");
@@ -89,7 +90,7 @@ export class OneReviewComponent implements OnInit {
     } else {
       //update
       console.log("UPDATE REVIEW")
-      this.reviewService.updateReviewDB('admin',this.id2,this.reviewDb).subscribe(
+      this.reviewService.updateReviewDB(sessionStorage.getItem(AUTHENTICATED_USER)+"",this.id2,this.reviewDb).subscribe(
         response => {
           console.log("Response review: \n"+response);
           this.router.navigateByUrl("/review");
