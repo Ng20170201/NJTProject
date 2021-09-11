@@ -12,7 +12,7 @@
                 <td class="date">
                     <label>Date:</label>
                     <input [ngModel]="reviewDb.date | date:'yyyy-MM-dd'" (ngModel)="reviewDb.date" class="form-control"
-                        type="date" id="date" name="date" size="40" name="date" required="required" [disabled]=true>
+                        type="date" max="2021-09-11" id="date" name="date" size="40" name="date" required="required" [disabled]=true>
                 </td>
                 <td>
                     <div *ngIf="!isDisabled">

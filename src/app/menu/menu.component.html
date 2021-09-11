@@ -5,8 +5,8 @@
         </div>
 
         <ul class="navbar-nav">
-            <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/welcome/" class="nav-link"> Home </a></li>
-            <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/welcome-doctor/" class="nav-link"> Home </a></li>
+            <li><a  *ngIf="basicAuthService.isUserLoggedIn()" routerLink="/welcome/patient" class="nav-link"> Home </a></li>
+            <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/welcome-doctor/doctor" class="nav-link"> Home </a></li>
             <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/list-patient" class="nav-link"> Patients </a></li>
             <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/review" class="nav-link"> Appointments </a></li>
             <li><a  *ngIf="basicAuthService.isDoctorLoggedIn()" routerLink="/report" class="nav-link"> Reports </a></li>

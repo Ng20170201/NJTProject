@@ -1,18 +1,22 @@
-h2 {text-align: center;}
-
-#div1{
-    float: left;
-    width: 30%;
-    
+.container {
+    background-color: #fff;
+    border-radius: 0.3rem;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 8px;
+    border-radius: 4px;
+    min-width: 900px;
+    min-height: 80px;
 }
+.title{
+    display: flex;
+    justify-content: center;
+    color:#003459;
+    margin-bottom: 50px;
 
-#div2{
-    float:right;
-    width:30%;
 }
+.btn-primary{
+    background-color: rgb(96, 135, 160);
+    border: 1px solid rgb(81, 166, 216);
+    transition-duration: 0.2s;
+    margin-right: 14px;
 
-
-#div3{
-    width: 40%;
-    margin: 0 auto;
 }

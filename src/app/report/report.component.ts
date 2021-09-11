@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReportDB } from '../patient-reviews/patinet-reviews.component';
 import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReportsDataService } from '../service/data/reports-data.service';
 
@@ -39,7 +40,7 @@ export class Report{
 
 
 export class ReportComponent implements OnInit {
-  reports:Array<Report>=new Array<Report>()
+  reports:Array<ReportDB>=new Array<ReportDB>()
   message : String=""
  //  reports=[]
   //reports=[
@@ -59,7 +60,7 @@ export class ReportComponent implements OnInit {
    
   }
   refreshReports(){
-      this.reportsservice.retrieveAllReports(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
+      this.reportsservice.retrieveAllReportsDb(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
         response=>{
      
           this.reports=response;

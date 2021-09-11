@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HardcodedAuthenticationService {
 
-  constructor() { }
+  constructor(    private router:Router) { }
+
   authenticateDoctor(username:string ,password:string){
     //console.log('before ' + this.isUserLoggedIn());
     if(username==="admin" && password==="admin"){
@@ -42,8 +44,10 @@ export class HardcodedAuthenticationService {
     return false;
   }
   logout(){
- 
+    
     sessionStorage.removeItem('authenticaterUser')
+    this.router.navigateByUrl("/login")
+    
   }
 
 }
