@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReportDB } from '../patient-reviews/patinet-reviews.component';
 import { Report } from '../report/report.component';
 import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReportsDataService } from '../service/data/reports-data.service';
@@ -9,7 +10,7 @@ import { ReportsDataService } from '../service/data/reports-data.service';
   styleUrls: ['./patient-reports.component.css']
 })
 export class PatientReportsComponent implements OnInit {
-  reports:Array<Report>=new Array<Report>()
+  reports:Array<ReportDB>=new Array<ReportDB>()
   message : String=""
   // reports=[]
   // reports=[
@@ -22,9 +23,9 @@ export class PatientReportsComponent implements OnInit {
   constructor(private reportsservice: ReportsDataService) { }
 
   ngOnInit(): void {
-    this.reportsservice.retrieveAllReports(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
+    this.reportsservice.retrieveAllReportsDb(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
       response=>{
-        console.log(response);
+        console.log("Ovo je report ",response);
         this.reports=response;
       }
     )

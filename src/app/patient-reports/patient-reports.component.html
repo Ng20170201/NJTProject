@@ -4,24 +4,28 @@
 </h1></div>
 
 <div class="alert alert-success" *ngIf='message!=""'>{{message}}</div>
-<div class="container">
+<!-- <div class="container"> -->
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
 <table class="table">
     <caption>List reports</caption>
-    <thead>
+    <thead >      
         <tr>
          
-            <th>ID</th>
+            <!-- <th>ID</th> -->
+            <!-- <th>Doctor</th> -->
             <th>Diagnosis</th>
             <th>Therapy</th>
             <th>Note</th>
 
  
         </tr>
+        
     </thead>
     <tbody>
         <tr *ngFor="let report of reports">
-          
-            <td>{{report.id}}</td>
+<!--           
+            <td>{{report.id}}</td> -->
+            <!-- <td>dr {{report.review.doctor.name}} {{report.review.doctor.surname}}</td> -->
             <td>{{report.diagnosis}}</td>
             <td>{{report.therapy }}</td>
             <td>{{report.note}}</td>

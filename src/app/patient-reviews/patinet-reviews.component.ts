@@ -49,7 +49,7 @@ export class ReportDB {
     public note: string,
     public diagnosis: string,
     public therapy: string,
-    public review:ReviewDB|null
+    public review:ReviewDB
   ) { }
 }
 export class DepartmentDB{

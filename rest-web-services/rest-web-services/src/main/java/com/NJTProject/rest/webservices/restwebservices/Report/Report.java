@@ -21,6 +21,7 @@ public class Report {
     private String diagnosis;
     private String therapy;
     private String note;
+    
   
 
     @ManyToOne

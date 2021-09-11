@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { REPORT_JPA_API_URL } from 'src/app/app.constants';
+import { ReportDB } from 'src/app/patient-reviews/patinet-reviews.component';
 import { Report } from 'src/app/report/report.component';
 
 
@@ -17,6 +18,10 @@ export class ReportsDataService {
 
   }
   
+  retrieveAllReportsDb(username:String){
+    return this.http.get<ReportDB[]>(`${REPORT_JPA_API_URL}/users/${username}/reports`);
+
+  }
   deleteReport(ID:number){
     console.log(`Brise se report pod id:  ${ID}`);
     return this.http.delete(`${REPORT_JPA_API_URL}/users/admin/reports/${ID}`);
