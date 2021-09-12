@@ -5,13 +5,19 @@
     border-radius: 4px;
     min-width: 900px;
     min-height: 80px;
+    padding: 10px;
+    margin-top: -20px;
+    margin-bottom: -50px;
+    
 }
+
 
 .title{
     display: flex;
     justify-content: center;
     color:#003459;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    margin-top:-50px;
 
 }
 .btn-primary{
