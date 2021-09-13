@@ -7,6 +7,7 @@ package com.NJTProject.rest.webservices.restwebservices.doctor;
 
 import com.NJTProject.rest.webservices.restwebservices.Department.Department;
 import com.NJTProject.rest.webservices.restwebservices.Review.Review;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -163,6 +164,42 @@ public class Doctor {
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Doctor other = (Doctor) obj;
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", specialization=" + specialization + ", workingshift=" + workingshift + ", username=" + username + ", password=" + password + '}';
+    }
+
+   
+
+
 
   
 

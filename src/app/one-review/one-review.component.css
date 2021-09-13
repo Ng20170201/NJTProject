@@ -1,11 +1,11 @@
-form{
+.container{
     display: flex;
     justify-content: left;
     flex-direction: column;
     border: 3px solid #003459;
     border-style: dotted;
     background-color: rgb(135, 163, 180);
-    margin-top: -40px;
+ 
 }
 .ng-invalid:not(form){
     border-left: 5px solid red;

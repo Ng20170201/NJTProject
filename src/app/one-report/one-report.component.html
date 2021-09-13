@@ -1,23 +1,47 @@
-<h1>Report </h1>
-
-<div class="container">
-<form (ngSubmit)= " SaveReport()" #reportForm="ngForm">
-
-<fieldset class="form-group">
-    <label>Diagnosis</label>
-    <input type="text"  class="form-control" [(ngModel)]="report.diagnosis"  name="Diagnosis" required="required" minlength="5">
-</fieldset>
-
-<fieldset class="form-group">
-    <label>Therapy</label>
-    <input type="text" class="form-control" [(ngModel)]="report.therapy"  name="Therapy" required="required">
-</fieldset>
-
-<fieldset class="form-group">
-    <label>Note</label>
-    <textarea rows="7" type="text" class="form-control" [(ngModel)]="report.note" name="Note" required="required" minlength="5"></textarea>
-</fieldset>
-
-<button type="submit" class="btn btn-success ">Save</button>
-</form>
+<div class="title">
+    <h1>Report</h1>
 </div>
+
+<body>
+    <div class="container">
+
+        <div class="alert alert-warning" *ngIf="reportForm.dirty && reportForm.invalid">Please fill in required form
+            fields</div>
+        <form class="form-group" (ngSubmit)="!reportForm.invalid && SaveReport()" #reportForm="ngForm">
+            <tr class="first-row">
+                <td>
+                    <label>Diagnosis:</label>
+                </td>
+                <td class="diagnosis">
+                    <input type="text" class="form-control diagnosis" [(ngModel)]="report.diagnosis" name="diagnosis"  id="diagnosis"
+                    required="required" minlength="5">
+                </td>
+            </tr>
+            <tr class="therapy">
+
+                <label>Therapy: &nbsp; </label>
+
+                <textarea rows="7" [(ngModel)]="report.therapy" class="form-control " size="40" type="text"
+                    id="therapy" name="therapy" required="required" minlength="5"
+                    placeholder="Enter therapy.."></textarea>
+            </tr>
+            <tr class="first-row">
+                <td>
+                    <label>Note:</label>
+                </td>
+                <td>
+
+                    <input type="text" class="form-control note" [(ngModel)]="report.note" id="note" name="note"
+                        required="required" minlength="5">
+                </td>
+            </tr>
+            <tr style="display: flex; justify-content: flex-end;">
+
+                <td>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </td>
+            </tr>
+
+        </form>
+    </div>
+</body>

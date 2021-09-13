@@ -1,6 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReportDB } from '../patient-reviews/patinet-reviews.component';
+import { ReportDB, ReviewDB } from '../patient-reviews/patinet-reviews.component';
 import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReportsDataService } from '../service/data/reports-data.service';
 
@@ -40,15 +41,9 @@ export class Report{
 
 
 export class ReportComponent implements OnInit {
-  reports:Array<ReportDB>=new Array<ReportDB>()
-  message : String=""
- //  reports=[]
-  //reports=[
-  //   new Report(1,1,'Office1','Description1','Date1'),
-  //   new Report(2,2,'Office2','Description1','Date2'),
-  //   new Report(3,3,'Office3','Description1','Date3')
+  reportsDb:ReportDB[]=[];
+  message : String="";
 
-  // ]
   constructor( private reportsservice: ReportsDataService,
     private router:Router) {
   
@@ -62,9 +57,10 @@ export class ReportComponent implements OnInit {
   refreshReports(){
       this.reportsservice.retrieveAllReportsDb(sessionStorage.getItem(AUTHENTICATED_USER)+"").subscribe(
         response=>{
-     
-          this.reports=response;
-          console.log(this.reports);
+          this.reportsDb=response;
+          console.log("REPORTS")
+          console.log(this.reportsDb);
+          
         }
       )
   }
@@ -76,8 +72,10 @@ export class ReportComponent implements OnInit {
         response=>{
           console.log(response);
          
-          this.message=`Delete of Report ${id}... Delete Successfull`
+          this.message=`You have successfully deleted chosen report!`
             this.refreshReports();
+            
+
           }
           
         

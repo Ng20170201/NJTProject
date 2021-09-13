@@ -1,12 +1,14 @@
 package com.NJTProject.rest.webservices.restwebservices.Report;
 
+import com.NJTProject.rest.webservices.restwebservices.Review.Review;
+import com.NJTProject.rest.webservices.restwebservices.Review.ReviewJpaRepository;
+import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
+import com.NJTProject.rest.webservices.restwebservices.doctor.DoctorJpaRepository;
+import com.NJTProject.rest.webservices.restwebservices.patient.Patient;
+import com.NJTProject.rest.webservices.restwebservices.patient.PatientsJpaRepository;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import javax.servlet.Servlet;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +21,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import com.NJTProject.rest.webservices.restwebservices.Review.Review;
-import com.NJTProject.rest.webservices.restwebservices.Review.ReviewJpaRepository;
-import com.NJTProject.rest.webservices.restwebservices.doctor.Doctor;
-import com.NJTProject.rest.webservices.restwebservices.doctor.DoctorJpaRepository;
-import com.NJTProject.rest.webservices.restwebservices.patient.Patient;
-import com.NJTProject.rest.webservices.restwebservices.patient.PatientsJpaRepository;
 
 
 @CrossOrigin(origins="http://localhost:4200")
@@ -65,7 +60,7 @@ public class ReportsJPAResource {
 		if(patient!=null) {
 			
 			for(int i=0;i<reports.size();i++) {
-				if(reports.get(i).s().getPatient().getUCIN()==patient.getUCIN())
+				if(reports.get(i).s().getPatient().getUCIN().equals(patient.getUCIN()))
 					ReturnReports.add(reports.get(i));
 		}
 
@@ -73,6 +68,10 @@ public class ReportsJPAResource {
 
 		
 	}
+                System.out.println("Vratio sam ove REPORTS sa ovim REVIEWS: ");
+                    for(Report r : ReturnReports){
+                        System.out.println(r+" \nREVIEW: "+r.s());
+                    }
 		return ReturnReports;
 	}
 	@GetMapping("/jpa/users/{username}/reports/{id}")
@@ -113,7 +112,7 @@ public class ReportsJPAResource {
 	public  ResponseEntity<Void> CreateReport(@PathVariable String username,@PathVariable long idReview,@PathVariable long id, @RequestBody Report report){
 		Review r1=reviewJpaRepository.findById(idReview);
 		List<Review> rev=reviewJpaRepository.findAll();
-
+                
 		
 		report.se(r1);
 		Report createdReport= reportJpaRepository.save(report);

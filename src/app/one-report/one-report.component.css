@@ -1,3 +1,81 @@
-.ng-invalidi{
+.container{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    border: 3px solid #003459;
+    border-style: dotted;
+    background-color: rgb(135, 163, 180);
+}
+.ng-invalid:not(form){
     border-left: 5px solid red;
 }
+.btn-success{
+    background-color: rgb(96, 135, 160);
+    border: 1px solid  #003459;
+    transition-duration: 0.2s;
+    height: 50px;
+    width: 120px;
+    margin-top: 5px;
+  
+
+}
+.btn-success:hover{
+    background-color: rgb(0, 107, 168);
+    border: 1px solid rgb(0, 107, 168);
+    
+}
+tr{
+    display: flex;
+    justify-content:  space-around;
+    margin:10px;
+}
+
+
+
+.title{
+    display: flex;
+    justify-content: center;
+    color: #003459;
+    margin-bottom: 30px;
+    margin-top: -50px;
+    padding:10px;
+    font-weight: 600;
+
+
+}
+body label{
+    color:#003459;
+    font-size: 20px ;
+    font-weight: 600;
+    align-items: stretch;
+    margin-left: -120px;
+    
+}
+input{
+    margin-left: -20px;
+    padding: 10px;
+    margin-right: 40px;
+}
+
+
+
+  .first-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 130px;
+    margin-right:50px;
+    margin-top: 20px;
+
+  }
+  .therapy{
+      padding:20px;
+      margin-right: 42px;
+      margin-left: 98px;
+     
+  }
+ 
+  .alert-warning{
+      font-size: 15px;
+  }

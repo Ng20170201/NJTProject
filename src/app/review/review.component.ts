@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorDB, Review, ReviewDB } from '../patient-reviews/patinet-reviews.component';
 import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReviewsDataService } from '../service/data/reviews-data.service';
-// import { Review } from '../patient-reviews/patient-reviews.component';
 
 
 
@@ -34,8 +33,8 @@ export class ReviewComponent implements OnInit {
         response=>{
          
           this.reviews=response;
+        console.log(this.reviews);
         
-          console.log(this.reviews);
         }
       
     )

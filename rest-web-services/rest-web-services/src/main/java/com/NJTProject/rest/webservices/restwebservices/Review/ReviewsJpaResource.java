@@ -32,19 +32,7 @@ public class ReviewsJpaResource {
     @Autowired
     private PatientsJpaRepository patientsJpaRepository;
 
-    /*
-    @GetMapping("/jpa/users/{username}/reviews")
-    public List<Review> getAllReviews(@PathVariable String username) {
-        //	return ReviewService.findAll();
-         Doctor d1=doctorJpaRepository.findByUsername(username);
-        List<Review> reviews = reviewJpaRepository.findAll();
-        
-        for (Review r : reviews) {
-
-            System.out.println("Procitao:" + r);
-        }
-        return reviewJpaRepository.findAll();
-    }*/
+  
     @GetMapping("/jpa/users/{username}/reviews")
     public List<Review> getAllReviews(@PathVariable String username) {
         List<Review> reviews = reviewJpaRepository.findAll();

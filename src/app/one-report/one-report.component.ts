@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PatientDB } from '../list-patient/list-patient.component';
+import { DepartmentDB, DoctorDB, ReportDB, ReviewDB } from '../patient-reviews/patinet-reviews.component';
 import { Report } from '../report/report.component';
 import { AUTHENTICATED_USER } from '../service/basic-authentication.service';
 import { ReportsDataService } from '../service/data/reports-data.service';
@@ -38,9 +40,6 @@ report:Report= new Report(0,'','','',0,0,new Date())
 
    
 }
-
-
-  
   SaveReport(){
  
     if(this.id!=-1){
@@ -55,8 +54,6 @@ report:Report= new Report(0,'','','',0,0,new Date())
    )
     }
     else{
-
-
    this.reportService.createReport(this.idReview,sessionStorage.getItem(AUTHENTICATED_USER)+"",this.report).subscribe(
      data=>{
        console.log(data)
