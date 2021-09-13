@@ -26,6 +26,7 @@
     margin-top: 15px;
     color:#003459;
 
+
 }
 .table{
     border-top: 1px solid #003459;;
@@ -35,3 +36,9 @@ thead{
     background-color:rgb(112, 157, 184);
 
 }
+td , th {
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 400px;
+}
+

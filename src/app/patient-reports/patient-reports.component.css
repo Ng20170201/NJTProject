@@ -26,12 +26,18 @@
     margin-top: 15px;
     color:#003459;
 
+
 }
 .table{
     border-top: 1px solid #003459;;
     border: 1px solid #212529;
 }
 thead{
-    background-color:orange;
+    background-color:rgb(84, 140, 175);
 
+}
+td , th {
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 300px;
 }
