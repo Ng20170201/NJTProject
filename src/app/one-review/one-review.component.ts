@@ -38,6 +38,8 @@ export class OneReviewComponent implements OnInit {
     private route: ActivatedRoute, private router: Router,private patientService:PatientDataService) { }
 
   ngOnInit(): void {
+
+    this.getDate();
 //uzimanje pacijenata
    this.patientService.retrieveAllPatients('admin').subscribe(
      response=>{  
@@ -69,7 +71,21 @@ export class OneReviewComponent implements OnInit {
       })
     }
   }
+  minDate:any = ""
 
+  getDate(){
+    var date:any = new Date();
+    var toDate:any = date.getDate();
+    if(toDate < 10){
+      toDate = '0' + toDate;
+    }
+    var month:any = date.getMonth() + 1;
+    if(month < 10){
+      month = '0' + month;
+    }
+    var year = date.getFullYear();
+    this.minDate = year + "-" + month + "-" + toDate;
+  }
   
     SaveReview() {
       console.log("POZVANA SAVE REVIEW METODA");

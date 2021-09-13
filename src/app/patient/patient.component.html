@@ -10,7 +10,7 @@
                 <td>
                     <label>Date of birth</label>
                     <input [ngModel]="patient.birthDate | date:'yyyy-MM-dd'" (ngModel)="patient.birthDate"
-                        class="form-control" type="date" max="2021-09-11" id="birthday" name="password" size="40" name="birthday"
+                        class="form-control" type="date" max={{maxDate}} id="birthday" name="password" size="40" name="birthday"
                         required="required">
                 </td>
                 <td></td>
