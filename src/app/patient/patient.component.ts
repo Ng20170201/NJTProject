@@ -23,7 +23,8 @@ export class PatientComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    this.getDate();
+    
     this.id = this.route.snapshot.params['id'];
     this.patient = new Patient(this.id, "", "", "", new Date(), "", "", "");
 
@@ -41,6 +42,25 @@ export class PatientComponent implements OnInit {
     }
 
   }
+
+maxDate:any = ""
+
+getDate(){
+  var date:any = new Date();
+  var toDate:any = date.getDate();
+  if(toDate < 10){
+    toDate = '0' + toDate;
+  }
+  var month:any = date.getMonth() + 1;
+  if(month < 10){
+    month = '0' + month;
+  }
+  var year = date.getFullYear();
+  this.maxDate = year + "-" + month + "-" + toDate;
+}
+
+
+
   savePatient() {
     if(this.checkFields(this.patient)==false){
       return;
